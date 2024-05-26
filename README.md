@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-# React + Vite
+# Bun Drop - by Rida Abdal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An ongoing React-project to build a website for the company Bun Drop.
 
-Currently, two official plugins are available:
+You can order burgers with drone-delivery in this website.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-=======
-# bun-drop
->>>>>>> 40f6c71025734269c7ec363f9e6b435fb3880d5b
+Completion in 2 weeks
