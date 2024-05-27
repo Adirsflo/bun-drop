@@ -1,10 +1,120 @@
-h1 {
-  font-family: "Jellee", sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap");
+
+/* Element styling */
 
 img {
   width: 12rem;
 }
+
+button {
+  margin: 1rem;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.nav-size {
+  font-size: 20px;
+}
+
+/* BUTTONS */
+.btn-dark {
+  width: 80px;
+  height: 37px;
+  border: 1px solid #0a2328;
+  background: #0a2328;
+  color: #fefbf3;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  border-color: #fefbf3;
+  color: #0a2328;
+  background-color: #fefbf3;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+#nav-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fecdb7;
+}
+
+#nav-wrapper #nav-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+#label-container {
+  border-bottom: 2px solid #0a2328;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.1rem;
+}
+
+#nav-left-bottom {
+  display: flex;
+  width: 30%;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: -30px;
+}
+
+.brLabel {
+  height: 5rem;
+  width: auto;
+}
+
+.brIcon {
+  margin-top: 2rem;
+}
+
+#nav-wrapper #nav-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-container-btn {
+  border-bottom: 2px solid #0a2328;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-login {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  left: 50px;
+}
+
+#nav-right-bottom {
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  top: 3px;
+}
+
+/* FOOTER */
 
 /* #root {
   max-width: 1280px;

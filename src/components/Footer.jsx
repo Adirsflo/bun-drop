@@ -6,7 +6,9 @@ function Footer() {
       <div>
         <div>
           <div>
-            <div>Bun Drop</div>
+            <div>
+              <h1>Bun Drop</h1>
+            </div>
             <ul>
               <li>GitHub</li>
               <li>LinkedIn</li>

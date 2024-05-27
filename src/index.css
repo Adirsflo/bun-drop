@@ -26,8 +26,28 @@
   font-style: normal;
 }
 
+.font-jellee {
+  font-family: "Jellee", sans-serif;
+  text-decoration: none;
+  color: #0a2328;
+}
+
+h1,
+h2,
+h3,
+ul,
+li,
+p {
+  font-family: "Jellee", sans-serif;
+}
+
 body {
   background-color: #fecdb7;
+  color: #0a2328;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* body {
