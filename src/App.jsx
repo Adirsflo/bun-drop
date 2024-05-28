@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 
 // CSS & other
 import "./App.css";
+import "./images/font_awesome/font_awesome.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 

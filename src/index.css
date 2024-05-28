@@ -32,13 +32,8 @@
   color: #0a2328;
 }
 
-h1,
-h2,
-h3,
-ul,
-li,
-p {
-  font-family: "Jellee", sans-serif;
+* {
+  font-family: "Rowdies", sans-serif;
 }
 
 body {
@@ -50,13 +45,17 @@ body {
   width: 100%;
 }
 
-/* body {
-  font-family: "Jellee", sans-serif;
+html,
+body,
+#root {
+  height: 100%;
 }
 
-h1 {
-  font-size: 500px;
-} */
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

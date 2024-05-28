@@ -6,6 +6,11 @@ img {
   width: 12rem;
 }
 
+a {
+  text-decoration: none;
+  color: #0a2328;
+}
+
 button {
   margin: 1rem;
   font-family: "Rowdies", sans-serif;
@@ -43,7 +48,6 @@ button {
 #nav-wrapper {
   display: flex;
   width: 100%;
-  overflow: hidden;
   justify-content: space-between;
   align-items: center;
 
@@ -115,6 +119,248 @@ button {
 }
 
 /* FOOTER */
+#footer-wrapper {
+  color: #0a2328;
+  background-color: #b6a39a;
+  position: relative;
+  /* width: 100%; */
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  margin: 20px auto 0;
+  padding-top: 40px;
+}
+
+.footer-socials-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brLabelFooter {
+  height: 3rem;
+  width: auto;
+}
+
+.opening-hours {
+  line-height: 0.6;
+}
+
+.opening-hours p {
+  font-size: 14px;
+}
+
+.footer-menu {
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-menu .link {
+  text-decoration: none;
+  color: #0a2328;
+  margin: 0;
+  font-size: 24px;
+}
+
+.social-icons {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.social-icons li {
+  margin-bottom: 10px;
+}
+
+.social-icons li .social-link {
+  height: 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #0a2328;
+}
+
+.bottom-section {
+  position: relative;
+  bottom: 10px;
+}
+
+.payment-section {
+  display: flex;
+  list-style-type: none;
+
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  /* bottom: 1rem;
+  right: 1rem; */
+}
+
+.payment-section li img {
+  height: 25px;
+}
+
+#visa-footer {
+  height: 40px;
+  position: relative;
+  right: 5px;
+}
+
+.footer-bottom img {
+  width: auto;
+  height: 1.3rem;
+  position: relative;
+  top: 5.9px;
+}
+
+/* HOME */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#drop-hamburger {
+  height: 530px;
+  width: auto;
+  position: relative;
+  bottom: 400px;
+}
+
+#drop-it-txt {
+  font-size: 70px;
+  position: relative;
+  top: 216px;
+  right: 203.9px;
+  line-height: 0.5;
+}
+
+#favorite-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1717;
+  color: #fefbf3;
+  padding: 10rem 0 43rem 0;
+  overflow: hidden;
+}
+
+#favorite-container h1 {
+  font-size: 79px;
+}
+
+.favorite-burgers {
+  height: 100%;
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.favorite-burger-img {
+  border-radius: 69px;
+  height: 100%;
+  margin: 3rem;
+  height: 300px;
+  width: auto;
+}
+
+#hungry-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: wrap;
+}
+
+#hungry-left {
+  display: flex;
+  justify-content: center;
+  height: 517px;
+  width: 50%;
+  background-color: #0a2328;
+  position: relative;
+}
+
+.are-you-hungry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbf3;
+  height: 258px;
+  width: 388px;
+  border-radius: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.are-you-hungry h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.are-you-hungry button {
+  height: 60px;
+  width: auto;
+  font-size: 20px;
+  color: #fefbf3;
+  background-color: #aa4242;
+  border: 1px solid #aa4242;
+  cursor: pointer;
+}
+
+#drink-landing-img {
+  height: 638px;
+  width: auto;
+  transform: scaleX(-1);
+  position: relative;
+  right: 46%;
+  bottom: 8%;
+}
+
+#hungry-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbf3;
+  height: 517px;
+  width: 50%;
+}
+
+#hungry-right img {
+  height: 954px;
+  width: auto;
+  position: relative;
+  left: 50%;
+  bottom: 10px;
+}
 
 /* #root {
   max-width: 1280px;

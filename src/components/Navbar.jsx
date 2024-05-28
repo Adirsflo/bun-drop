@@ -9,14 +9,22 @@ function Navbar() {
       <div id="nav-wrapper">
         <div id="nav-left">
           <div id="label-container">
-            <img className="brLabel" src={brLabel} alt="BUN DROP" />
+            <Link to="/">
+              <img className="brLabel" src={brLabel} alt="BUN DROP" />
+            </Link>
           </div>
           <div id="nav-left-bottom">
-            <Link className="font-jellee nav-size">MENU</Link>
-            <Link className="font-jellee nav-size">ORDER</Link>
+            <Link className="font-jellee nav-size" to="/menu">
+              MENU
+            </Link>
+            <Link className="font-jellee nav-size" to="/order">
+              ORDER
+            </Link>
           </div>
         </div>
-        <img className="brIcon" src={brIcon} alt="BUN DROP" />
+        <Link to="/">
+          <img className="brIcon" src={brIcon} alt="BUN DROP" />
+        </Link>
         <div id="nav-right">
           <div id="nav-container-btn">
             <div id="nav-login">
@@ -29,13 +37,13 @@ function Navbar() {
             </div>
           </div>
           <div id="nav-right-bottom">
-            <a className="font-jellee nav-size" href="#">
+            <a className="font-jellee nav-size" href="*">
               ABOUT US
             </a>
-            <a className="font-jellee nav-size" href="#">
+            <a className="font-jellee nav-size" href="*">
               FAQ
             </a>
-            <a className="font-jellee nav-size" href="#">
+            <a className="font-jellee nav-size" href="*">
               CAREER
             </a>
           </div>
