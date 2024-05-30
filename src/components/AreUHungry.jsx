@@ -1,6 +1,6 @@
 import React from "react";
-import drink from "../images/products/display/drink-6.png";
-import burger from "../images/products/display/buger-1.png";
+import drink from "../images/display/drink-6.png";
+import burger from "../images/display/buger-1.png";
 import "../App.css";
 
 function AreUHungry() {

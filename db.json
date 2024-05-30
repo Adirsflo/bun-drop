@@ -6,7 +6,7 @@
       "price": 45,
       "description": "A succulent beef patty topped with melted cheddar cheese, crispy bacon, fresh lettuce, juicy tomato, crunchy pickles, and sweet onion, all dressed with our special sauce and sandwiched in a perfectly toasted sesame seed bun. Served with golden fries and a refreshing drink.",
       "category": "burgers",
-      "image": "burger-1"
+      "image": "./src/images/products/burgers/burger-1.png"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "price": 59,
       "description": "Indulge in the rich flavors of our Gourmet Melt burger. Featuring a perfectly grilled beef patty, melted Swiss cheese, caramelized onions, and sautéed mushrooms, all complemented by tangy pickled red onions and creamy aioli. Served on a toasted brioche bun with black and white sesame seeds. Accompanied by crispy fries and your choice of beverage.",
       "category": "burgers",
-      "image": "burger-2"
+      "image": "./src/images/products/burgers/burger-2.png"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "price": 64,
       "description": "Dive into the savory delight of our Smoky BBQ Bliss burger. Featuring a juicy beef patty topped with melted cheddar cheese, crispy bacon, caramelized onions, tangy pickles, and a generous dollop of smoky BBQ sauce. All nestled in a toasted sesame seed brioche bun and finished with a hint of spicy mayo. Served with a side of golden fries and your choice of drink.",
       "category": "burgers",
-      "image": "burger-3"
+      "image": "./src/images/products/burgers/burger-3.png"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "price": 64,
       "description": "Savor the flavors of our Double Decker Delight burger. This masterpiece boasts two juicy beef patties, each crowned with melted cheddar cheese, smoky bacon, caramelized onions, and crisp pickles. Topped with a generous spread of spicy chipotle mayo and nestled in a toasted sesame seed bun. Served with a side of crispy fries and a refreshing drink.",
       "category": "burgers",
-      "image": "burger-4"
+      "image": "./src/images/products/burgers/burger-4.png"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "price": 59,
       "description": "Elevate your burger experience with the Pretzel King. A juicy beef patty topped with creamy cheddar cheese sauce, fresh greens, and tangy pickles, all enveloped in a warm, soft pretzel bun. Finished with a touch of spicy mustard aioli, this burger is a unique blend of flavors and textures. Served with a side of crispy fries and your choice of beverage.",
       "category": "burgers",
-      "image": "burger-5"
+      "image": "./src/images/products/burgers/burger-5.png"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "price": 69,
       "description": "Get ready for a classic delight with our Ultimate Classic Stack. Featuring two perfectly grilled beef patties, gooey melted cheddar cheese, fresh lettuce, juicy tomato, crisp pickles, and sweet onions. Topped with a rich and creamy special sauce, all nestled in a toasted sesame seed bun. Served with crispy fries and your choice of drink.",
       "category": "burgers",
-      "image": "burger-6"
+      "image": "./src/images/products/burgers/burger-6.png"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "price": 64,
       "description": "Indulge in the decadence of our Melted Majesty burger. Featuring two juicy beef patties smothered in melted American cheese, topped with tangy pickles, and layered with a rich, creamy cheese sauce. All encased in a perfectly toasted brioche bun that’s soft on the inside and slightly crispy on the outside. Served with a side of crispy fries and your choice of beverage.",
       "category": "burgers",
-      "image": "burger-7"
+      "image": "./src/images/products/burgers/burger-7.png"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "price": 69,
       "description": "Indulge in the opulence of our Triple Stacked Royale burger. This towering delight features three juicy beef patties, each layered with melted cheddar cheese and topped with caramelized onions. Complemented by fresh greens, ripe tomato slices, and tangy pickles, all drenched in a luxurious cheese sauce. Encased in a soft, toasted pretzel bun, this burger is a true feast. Served with crispy fries and your choice of beverage.",
       "category": "burgers",
-      "image": "burger-8"
+      "image": "./src/images/products/burgers/burger-8.png"
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "price": 75,
       "description": "Experience the unique allure of our Midnight Crunch burger. Featuring a crispy chicken fillet topped with smoky bacon, melted Swiss cheese, tangy pickles, and creamy mayo. All nestled within a striking black sesame seed bun, this burger is as visually captivating as it is delicious. Served with a side of golden fries and your choice of drink.",
       "category": "burgers",
-      "image": "burger-9"
+      "image": "./src/images/products/burgers/burger-9.png"
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "price": 45,
       "description": "Satisfy your craving with our Crispy Cajun Fries. These perfectly golden fries are seasoned with a blend of Cajun spices to deliver a zesty kick in every bite. Crunchy on the outside and tender on the inside, they make the perfect accompaniment to any of our signature burgers. Served hot and fresh, ready to delight your taste buds.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-1.png"
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "price": 35,
       "description": "Enjoy a healthier twist with our Sweet Potato Fries. These delicious fries are perfectly baked to a crisp, offering a sweet and savory flavor in every bite. Seasoned lightly with sea salt, they provide a nutritious and tasty alternative to traditional fries. Perfect as a side to any burger or as a standalone snack.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-2.png"
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "price": 20,
       "description": "Relish the timeless taste of our Classic Golden Fries. These fries are cooked to perfection, delivering a crispy exterior with a fluffy inside. Lightly seasoned with just the right amount of salt, they are the ideal complement to any burger or meal. Served hot and fresh, ready to enjoy with your favorite dipping sauce.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-3.png"
     },
     {
       "id": 13,
@@ -102,7 +102,7 @@
       "price": 35,
       "description": "Turn up the heat with our Spicy Sweet Potato Fries. These fries are expertly cooked to achieve a perfect balance of crispy and tender. Coated in a blend of spices, they deliver a sweet and spicy kick that's sure to tantalize your taste buds. Perfect as a flavorful side to any meal or a standalone snack. Enjoy them hot and fresh with your favorite dipping sauce.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-4.png"
     },
     {
       "id": 14,
@@ -110,7 +110,7 @@
       "price": 20,
       "description": "Enjoy the perfect crunch with our Golden Onion Rings. These rings are made from thick slices of sweet onions, battered and fried to a crispy, golden perfection. Each bite offers a satisfying crunch and a burst of savory flavor. Ideal as a side to your favorite burger or as a tasty snack on their own. Served hot and fresh, ready to dip in your preferred sauce.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-5.png"
     },
     {
       "id": 15,
@@ -118,7 +118,7 @@
       "price": 20,
       "description": "Enjoy a crisp and refreshing side with our Fresh Apple Slices. These juicy, red apple slices are perfectly cut for a convenient and healthy snack. Bursting with natural sweetness and a satisfying crunch, they make a delightful complement to any meal or a nutritious option on their own. Ideal for a quick bite or a refreshing finish to your burger feast.",
       "category": "sides",
-      "image": ""
+      "image": "./src/images/products/sides/side-6.png"
     },
     {
       "id": 16,
@@ -126,7 +126,7 @@
       "price": 10,
       "description": "Enhance your meal with our Creamy Ranch Dip. This rich and flavorful sauce is made with a perfect blend of herbs and spices, offering a smooth and tangy taste that's perfect for dipping. Ideal for pairing with fries, onion rings, or any of our delicious burgers, it's a must-have addition to your meal. Enjoy the classic taste that brings a delightful twist to every bite.",
       "category": "dips",
-      "image": ""
+      "image": "./src/images/products/dips/dip-1.png"
     },
     {
       "id": 17,
@@ -134,7 +134,7 @@
       "price": 10,
       "description": "Add a burst of flavor to your meal with our Smoky BBQ Sauce. This rich and tangy sauce combines the perfect blend of smoky and sweet notes, enhanced with a hint of spice. Ideal for dipping fries, onion rings, or slathering on any of our signature burgers, it brings a delightful smoky flavor to every bite. Enjoy the perfect complement to your savory dishes.",
       "category": "dips",
-      "image": ""
+      "image": "./src/images/products/dips/dip-2.png"
     },
     {
       "id": 18,
@@ -142,7 +142,7 @@
       "price": 10,
       "description": "Elevate your meal with our Spicy Chipotle Mayo. This creamy and flavorful sauce brings a perfect blend of smoky chipotle peppers and smooth mayo, delivering a kick of heat in every bite. Perfect for dipping fries, spreading on burgers, or adding a spicy twist to any of your favorite dishes. Enjoy the rich, tangy flavor that makes every bite exciting.",
       "category": "dips",
-      "image": ""
+      "image": "./src/images/products/dips/dip-3.png"
     },
     {
       "id": 19,
@@ -150,7 +150,7 @@
       "price": 15,
       "description": "Dive into the creamy goodness of our Classic Cheese Sauce. This rich and velvety sauce is made from a blend of premium cheeses, offering a smooth and savory flavor that’s perfect for dipping. Ideal for pairing with fries, drizzling over burgers, or adding a cheesy touch to any of your favorite sides. Enjoy the ultimate comfort sauce that enhances every bite.",
       "category": "dips",
-      "image": ""
+      "image": "./src/images/products/dips/dip-4.png"
     },
     {
       "id": 20,
@@ -158,7 +158,7 @@
       "price": 25,
       "description": "Indulge in the ultimate treat with our Oreo Overload Shake. This decadent milkshake is a blend of rich vanilla ice cream, luscious chocolate syrup, and crushed Oreo cookies, topped with a generous dollop of whipped cream and an Oreo cookie. Each sip offers a delightful mix of creamy, crunchy, and chocolatey goodness. Perfect for satisfying your sweet tooth and adding a delicious finish to your meal.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-1.png"
     },
     {
       "id": 21,
@@ -166,7 +166,7 @@
       "price": 25,
       "description": "Boost your day with our refreshing Green Power Smoothie. Packed with nutrient-rich spinach, creamy avocado, and sweet mango, this smoothie offers a delicious blend of flavors and health benefits. Perfectly blended to a smooth consistency, it's a revitalizing drink that provides a burst of energy and essential vitamins. Enjoy the natural goodness in every sip.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-2.png"
     },
     {
       "id": 22,
@@ -174,7 +174,7 @@
       "price": 25,
       "description": "Treat yourself to a burst of fruity flavors with our Berry Blast Smoothie. This vibrant blend combines sweet strawberries, juicy blueberries, and ripe bananas to create a refreshing and nutritious drink. Perfectly mixed to achieve a smooth and creamy texture, it’s packed with vitamins and antioxidants. Enjoy the delightful taste and health benefits in every sip.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-3.png"
     },
     {
       "id": 23,
@@ -182,7 +182,7 @@
       "price": 25,
       "description": "Escape to a tropical paradise with our Tropical Mango Passion Smoothie. This vibrant and refreshing blend combines the sweetness of ripe mangoes with the exotic tang of passion fruit. Smooth and creamy, it's packed with vitamins and natural goodness, offering a deliciously fruity experience in every sip. Perfect for a revitalizing treat any time of day.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-4.png"
     },
     {
       "id": 24,
@@ -190,7 +190,7 @@
       "price": 18,
       "description": "Indulge in the timeless delight of our Classic Vanilla Milkshake. This creamy and smooth shake is made with rich vanilla ice cream, perfectly blended to create a luscious treat. Topped with a swirl of whipped cream, it offers a simple yet satisfying flavor that's perfect for any time of day. Enjoy the classic taste of vanilla in every sip.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-5.png"
     },
     {
       "id": 25,
@@ -198,7 +198,7 @@
       "price": 15,
       "description": "Delight in the refreshing taste of our Minty Vanilla Swirl. This creamy dessert features smooth vanilla soft serve topped with a sprinkle of minty green candy pieces for a burst of cool flavor. Perfect for satisfying your sweet tooth, this treat offers a delightful combination of creamy and crunchy textures. Enjoy the perfect finish to your meal with this mint-infused delight.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-6.png"
     },
     {
       "id": 26,
@@ -206,7 +206,7 @@
       "price": 15,
       "description": "Add a splash of color to your dessert with our Rainbow Sprinkle Delight. This creamy vanilla soft serve is generously topped with vibrant rainbow sprinkles, offering a fun and delicious treat. Perfect for any sweet tooth, this delightful dessert combines smooth, creamy texture with a crunchy sprinkle topping. Enjoy the perfect blend of flavors and textures in every bite.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-7.png"
     },
     {
       "id": 27,
@@ -214,7 +214,7 @@
       "price": 15,
       "description": "Delight in the sweet indulgence of our Caramel Rainbow Sundae. This creamy vanilla soft serve is drizzled with rich caramel sauce and topped with a generous sprinkle of colorful rainbow sprinkles. The combination of smooth ice cream, luscious caramel, and crunchy sprinkles creates a symphony of flavors and textures. Perfect for a fun and tasty treat to brighten your day.",
       "category": "sweets",
-      "image": ""
+      "image": "./src/images/products/sweets/sweet-8.png"
     },
     {
       "id": 28,
@@ -222,7 +222,7 @@
       "price": 20,
       "description": "Refresh yourself with the vibrant taste of Frida Early Bird Soda. This uniquely flavored beverage offers a delightful blend of zesty citrus notes and a hint of tropical sweetness, perfect for kickstarting your day or enjoying as a midday pick-me-up. Packaged in a stylish can with eye-catching patterns, it’s as visually appealing as it is delicious. Enjoy the crisp and refreshing flavor of Frida Early Bird Soda with your meal or as a standalone treat.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-1.png"
     },
     {
       "id": 29,
@@ -230,7 +230,7 @@
       "price": 20,
       "description": "Experience the delightful fusion of flavors with Olipop Strawberry Vanilla Sparkling Tonic. This refreshing beverage combines the sweet, juicy taste of ripe strawberries with the smooth, creamy notes of vanilla. Enhanced with botanicals and prebiotics, it supports digestive health while offering a delicious and bubbly treat. Perfect for pairing with your favorite meal or enjoying on its own, Olipop Strawberry Vanilla Sparkling Tonic is a flavorful and health-conscious choice.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-2.png"
     },
     {
       "id": 30,
@@ -238,7 +238,7 @@
       "price": 20,
       "description": "Discover the unique and refreshing taste of Calpis Water. This iconic Japanese beverage offers a light, milky flavor with a subtle sweetness, making it a perfect thirst-quencher. Known for its smooth texture and slightly tangy undertone, Calpis Water is a delightful drink that can be enjoyed on its own or as a mixer. Packaged in a distinctive can, it’s a refreshing and exotic treat that stands out.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-3.png"
     },
     {
       "id": 31,
@@ -246,7 +246,7 @@
       "price": 25,
       "description": "Energize your day with Positive Energy Tropical Bliss. This invigorating beverage combines the natural flavors of coconut and lime for a refreshing tropical taste. Infused with immunity-boosting vitamin C and zinc, it provides a clean, natural energy boost without artificial colors or preservatives. Perfect for a revitalizing drink on the go, Positive Energy Tropical Bliss is your ideal companion for a healthy and active lifestyle.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-4.png"
     },
     {
       "id": 32,
@@ -254,7 +254,7 @@
       "price": 18,
       "description": "Quench your thirst with the crisp and refreshing taste of our Classic Apple Juice. Made from ripe, juicy apples, this drink delivers a natural sweetness and a delightful tartness in every sip. Perfect for a healthy and invigorating beverage choice, it's a great complement to any meal or a refreshing pick-me-up on its own. Enjoy the pure and simple flavor of fresh apple juice.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-5.png"
     },
     {
       "id": 33,
@@ -262,8 +262,10 @@
       "price": 18,
       "description": "Brighten your day with a glass of our Fresh Orange Juice. Made from freshly squeezed oranges, this juice offers a perfect balance of sweet and tangy flavors. Packed with vitamin C, it's a nutritious and invigorating drink that's ideal for breakfast or a refreshing treat any time of day. Enjoy the natural, zesty taste of pure orange juice with every sip.",
       "category": "drinks",
-      "image": ""
+      "image": "./src/images/products/drinks/drink-6.png"
     }
   ],
-  "cart": []
+  "cart": [],
+  "users": [],
+  "receipt": []
 }

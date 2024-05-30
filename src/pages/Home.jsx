@@ -1,11 +1,11 @@
 import React from "react";
 import AreUHungry from "../components/AreUHungry";
-import dropHamburger from "../images/products/drop-hamburger.png";
-import favBurger1 from "../images/products/fav_burgers/burger-2.png";
-import favBurger2 from "../images/products/fav_burgers/burger-3.png";
-import favBurger3 from "../images/products/fav_burgers/burger-4.png";
-import favBurger4 from "../images/products/fav_burgers/burger-6.png";
-import favBurger5 from "../images/products/fav_burgers/burger-8.png";
+import dropHamburger from "../images/display/drop-hamburger.png";
+import favBurger1 from "../images/display/fav_burgers/burger-2.png";
+import favBurger2 from "../images/display/fav_burgers/burger-3.png";
+import favBurger3 from "../images/display/fav_burgers/burger-4.png";
+import favBurger4 from "../images/display/fav_burgers/burger-6.png";
+import favBurger5 from "../images/display/fav_burgers/burger-8.png";
 
 function Home() {
   return (
