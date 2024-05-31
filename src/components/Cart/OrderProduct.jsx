@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
-function OrderProduct(props) {
+function OrderProduct({ product, onProductSelect }) {
   function formatTitle() {
     const maxLength = 16;
 
-    if (props.product.title) {
-      const title = props.product.title;
+    if (product.title) {
+      const title = product.title;
       if (title.length <= maxLength) {
         return title;
       } else {
@@ -38,13 +38,17 @@ function OrderProduct(props) {
     return "";
   }
 
+  function handleClick() {
+    onProductSelect(product);
+  }
+
   return (
     <>
       <div id="order-selection-product">
         <div id="order-selection-product-wrapper">
           <img
             className="order-selection-product-img"
-            src={`${props.product.image}`}
+            src={`${product.image}`}
             alt=""
           />
           {/* <span className="icon-wrapper">
@@ -52,11 +56,11 @@ function OrderProduct(props) {
             <FontAwesomeIcon icon={farHeart} className="regular-heart" />
           </span> */}
         </div>
-        <button className="order-selection-product-btn">
-          <Link className="order-product-btn" to={`/menu/${props.product.id}`}>
+        <button className="order-selection-product-btn" onClick={handleClick}>
+          <div className="order-product-btn">
             <div className="osp-left">{formatTitle()}</div>
-            <div className="osp-right">{props.product.price}:-</div>
-          </Link>
+            <div className="osp-right">{product.price}:-</div>
+          </div>
         </button>
       </div>
     </>

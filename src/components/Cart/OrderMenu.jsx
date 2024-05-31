@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import OrderProduct from "./OrderProduct";
 
-function OrderMenu() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
+function OrderMenu({ onProductSelect }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +29,11 @@ function OrderMenu() {
           {products
             .filter((product) => product.category === "burgers")
             .map((p) => (
-              <OrderProduct key={p.id} product={p} />
+              <OrderProduct
+                key={p.id}
+                product={p}
+                onProductSelect={onProductSelect}
+              />
             ))}
         </div>
       </div>
@@ -39,7 +47,11 @@ function OrderMenu() {
           {products
             .filter((product) => product.category === "sides")
             .map((p) => (
-              <OrderProduct key={p.id} product={p} />
+              <OrderProduct
+                key={p.id}
+                product={p}
+                onProductSelect={onProductSelect}
+              />
             ))}
         </div>
       </div>
@@ -53,7 +65,11 @@ function OrderMenu() {
           {products
             .filter((product) => product.category === "dips")
             .map((p) => (
-              <OrderProduct key={p.id} product={p} />
+              <OrderProduct
+                key={p.id}
+                product={p}
+                onProductSelect={onProductSelect}
+              />
             ))}
         </div>
       </div>
@@ -67,7 +83,11 @@ function OrderMenu() {
           {products
             .filter((product) => product.category === "sweets")
             .map((p) => (
-              <OrderProduct key={p.id} product={p} />
+              <OrderProduct
+                key={p.id}
+                product={p}
+                onProductSelect={onProductSelect}
+              />
             ))}
         </div>
       </div>
@@ -81,7 +101,11 @@ function OrderMenu() {
           {products
             .filter((product) => product.category === "drinks")
             .map((p) => (
-              <OrderProduct key={p.id} product={p} />
+              <OrderProduct
+                key={p.id}
+                product={p}
+                onProductSelect={onProductSelect}
+              />
             ))}
         </div>
       </div>
