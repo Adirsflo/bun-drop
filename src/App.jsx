@@ -23,34 +23,49 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackgroundChanger from "./hooks/BackgroundChanger.jsx";
+import LoginModal from "./components/modals/LoginModal.jsx";
 
 // CSS & other
 import "./App.css";
-import "./images/font_awesome/font_awesome.js";
-
-// import localStorageManager from "./utils/localstoragemanager";
+import "@images/font_awesome/font_awesome.js";
 
 function AppContent() {
-  // const [currentUrl, setCurrentUrl] = useState("");
-  // const [input, setInput] = useState("");
-  // useEffect(() => {
-  //   const cart = new localStorageManager.getLocalStorage();
-
-  //   console.log(cart);
-  // }, []);
-
   const location = useLocation();
   const [currentLocation, setCurrentLocation] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     const { pathname } = location;
     setCurrentLocation(pathname);
   }, [location]);
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      setLoggedInUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogin = (user) => {
+    setLoggedInUser(user);
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+  };
+
+  const handleLogout = () => {
+    setLoggedInUser(null);
+    localStorage.removeItem("loggedInUser");
+  };
+
   return (
     <>
       <BackgroundChanger />
-      {currentLocation === "/order" ? null : <Navbar />}
+      {currentLocation === "/order" ? null : (
+        <Navbar
+          loggedInUser={loggedInUser}
+          onLogin={handleLogin}
+          onLogout={handleLogout}
+        />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />

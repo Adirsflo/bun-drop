@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,13 @@ function OrderCard({ orderDetails }) {
   const [expiryDate, setExpiryDate] = useState("");
   const [securityCode, setSecurityCode] = useState("");
   const [errors, setErrors] = useState({});
+  const [receiptId, setReceiptId] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const generatedReceiptId = generateUniqueOrderId();
+    setReceiptId(generatedReceiptId);
+  }, []);
 
   const handleCardNumberChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -67,23 +73,28 @@ function OrderCard({ orderDetails }) {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      const receiptId = generateUniqueOrderId();
+      const totalAmount = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      const now = new Date();
+      const orderDate = now.toISOString().split("T")[0];
+      const orderTime = now.toTimeString().split(" ")[0];
+
       const receipt = {
         id: receiptId,
         order: cart,
-        "total-amount": cart.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
-        ),
-        vat:
-          cart.reduce((sum, item) => sum + item.price * item.quantity, 0) *
-          0.25,
+        "total-amount": totalAmount.toFixed(2),
+        vat: (totalAmount * 0.25).toFixed(2),
         contact: {
           ...userDetails,
           address: deliveryAddress.address,
           city: deliveryAddress.city,
           zip: deliveryAddress.zip,
         },
+        orderDate,
+        orderTime,
       };
 
       try {

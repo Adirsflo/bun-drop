@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import swishText from "@images/payment/swish-text.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,13 @@ function OrderSwish({ orderDetails }) {
   const { cart, deliveryAddress, userDetails } = orderDetails;
   const [phoneNumber, setPhoneNumber] = useState("");
   const [errors, setErrors] = useState({});
+  const [receiptId, setReceiptId] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const generatedReceiptId = generateUniqueOrderId();
+    setReceiptId(generatedReceiptId);
+  }, []);
 
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -42,28 +48,32 @@ function OrderSwish({ orderDetails }) {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      const receiptId = generateUniqueOrderId();
+      const totalAmount = cart.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+
+      const now = new Date();
+      const orderDate = now.toISOString().split("T")[0];
+      const orderTime = now.toTimeString().split(" ")[0];
+
       const receipt = {
         id: receiptId,
         order: cart,
-        "total-amount": cart.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        ),
-        vat: cart.reduce(
-          (total, item) => total + item.price * item.quantity * 0.25,
-          0
-        ),
+        "total-amount": totalAmount.toFixed(2),
+        vat: (totalAmount * 0.25).toFixed(2),
         contact: {
           ...userDetails,
           address: deliveryAddress.address,
           city: deliveryAddress.city,
           zip: deliveryAddress.zip,
         },
+        orderDate,
+        orderTime,
       };
 
       try {
-        const response = await fetch("http://localhost:3001/receipt", {
+        const response = await fetch("http://localhost:3001/receipts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,6 +93,11 @@ function OrderSwish({ orderDetails }) {
       setErrors(newErrors);
     }
   };
+
+  const totalAmount = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <div>
@@ -108,8 +123,8 @@ function OrderSwish({ orderDetails }) {
       </div>
       <img src={swishText} alt="Swish" />
       <div>
-        <p>Ordernumber: QQ5S02037</p>
-        <p>Total amount: 114,00 kr</p>
+        <p>Ordernumber: {receiptId}</p>
+        <p>Total amount: {totalAmount.toFixed(2)} kr</p>
       </div>
     </div>
   );

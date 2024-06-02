@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import brLabel from "@images/bun_drop/br-label.png";
 import locationImg from "@images/display/location.png";
+import { Link } from "react-router-dom";
 
 function Confirmation() {
   const { receiptId } = useParams();
@@ -51,7 +52,7 @@ function Confirmation() {
               {receipt.order.map((item, index) => (
                 <div key={index}>
                   <h3>
-                    Order {item.id} - {item.title} - {item.quantity}
+                    {item.quantity}x - {item.title}
                   </h3>
                 </div>
               ))}
@@ -95,7 +96,9 @@ function Confirmation() {
             </div>
           </div>
         </div>
-        <button>Place another Drop!</button>
+        <button>
+          <Link to="/order">Place another Drop!</Link>
+        </button>
       </div>
     </>
   );

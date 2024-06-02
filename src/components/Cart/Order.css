@@ -1,0 +1,316 @@
+/* ORDER */
+#order-back-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  margin: 2rem 0 0 7rem;
+  cursor: pointer;
+}
+
+.faV-back {
+  color: #0a2328;
+  font-size: 40px;
+  position: relative;
+  top: 13%;
+}
+
+#order-back-btn h1 {
+  font-size: 24px;
+  font-weight: lighter;
+  flex: 1;
+}
+
+#order-view-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #ebebea;
+}
+
+#order-view-left {
+  flex: 3;
+}
+
+#order-view-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #0a2328;
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+/* CART */
+#order-view-right-dummy {
+  width: 25%;
+  height: 100%;
+}
+
+#cart-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0 0 0;
+}
+
+#cart-view-container img {
+  width: auto;
+  height: 69px;
+  margin-bottom: 10%;
+}
+
+#cart-view-container .cart-empty {
+  font-size: 20px;
+  width: 70%;
+  text-align: center;
+}
+
+/* ORDER SELECTION */
+/* #order-selection-container {
+} */
+
+#order-category-container .order-category-title {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.order-category-title .bar {
+  display: flex;
+  height: 4px;
+  width: 24.4%;
+  background-color: #0a2328;
+  border: #0a2328;
+
+  /* margin: 0 2rem; */
+}
+
+.order-category-title span {
+  font-size: 40px;
+  color: #0a2328;
+  margin: 0 2rem;
+}
+
+.bar-order {
+  display: flex;
+  height: 4px;
+  width: 24.4%;
+  background-color: #fd9e72;
+  border: #fd9e72;
+}
+
+#order-selection-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
+
+#order-selection-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 460px;
+  width: auto;
+}
+
+#order-selection-product-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.order-selection-product-img {
+  height: 260px;
+  width: auto;
+  border-radius: 12px;
+}
+
+.order-selection-product-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(250px, 50%, 400px);
+  height: 90px;
+  text-wrap: wrap;
+  text-align: center;
+  background-color: #fd9e72;
+  border: 1px solid #0a2328;
+  color: #fefbf3;
+  cursor: pointer;
+}
+.osp-left {
+  flex: 2 0 120px;
+  font-size: 24px;
+}
+.osp-right {
+  flex: 1 0 40px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-product-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  color: #fefbf3;
+}
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
+#burger-selected-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#back-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#burger-selected-image img {
+  width: 150px; /* Justera storlek efter behov */
+  height: auto;
+  border-radius: 8px;
+}
+
+#modification-container,
+#side-container,
+#beverage-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#modification-container input {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#side-container div,
+#beverage-container div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
+/* Container för hela checkout sektionen */
+#order-checkout-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Stil för varje avsnitt */
+.checkout-section {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+/* Rubriker för avsnitten */
+.checkout-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Flexbox container för rader */
+.checkout-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* Flexbox för kolumner inom rader */
+.checkout-column {
+  display: flex;
+  align-items: center;
+}
+
+/* Ikoner */
+.checkout-icon {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+/* Pilsymboler till höger */
+.faV-right {
+  margin-left: auto;
+  font-size: 1.5em;
+}
+
+/* Adress och tid kolumner */
+.checkout-column h3 {
+  margin: 5px 0;
+}
+
+/* Stil för betalningsalternativ */
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Ikoner för betalning */
+.payment-icon {
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Check icon för valda betalningsalternativ */
+.payment-check {
+  color: green;
+  font-size: 1.5em;
+}
+
+/* Inloggningssektion */
+.login-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */

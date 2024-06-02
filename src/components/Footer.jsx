@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSquareGithub,
   faLinkedin,
-  faSquareTwitter,
+  faXTwitter,
   faSquareFacebook,
   faSquareInstagram,
 } from "@fortawesome/free-brands-svg-icons";
@@ -41,10 +41,7 @@ function Footer() {
               </li>
               <li>
                 <a href="https://developer.x.com/en/404" target="_blank">
-                  <FontAwesomeIcon
-                    className="social-link"
-                    icon={faSquareTwitter}
-                  />
+                  <FontAwesomeIcon className="social-link" icon={faXTwitter} />
                 </a>
               </li>
               <li>

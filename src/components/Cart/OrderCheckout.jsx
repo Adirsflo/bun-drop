@@ -3,6 +3,7 @@ import mcIcon from "@images/payment/master-card-icon.webp";
 import swishLogo from "@images/payment/swish-logo.png";
 import AddressModal from "../modals/AdressModal";
 import TimeModal from "../modals/TimeModal";
+import LoginModal from "../modals/LoginModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHelicopterSymbol,
@@ -28,11 +29,21 @@ function OrderCheckout({
   const [deliveryTime, setDeliveryTime] = useState(
     "As soon as possible (ca 20 min)"
   );
+  const [showModal, setShowModal] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
 
   useEffect(() => {
     setCurrentPayment(selectedPayment);
   }, [selectedPayment]);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const handlePaymentSelect = (method) => {
     setCurrentPayment(method);
@@ -159,7 +170,11 @@ function OrderCheckout({
       </div>
       <div className="checkout-section">
         <h2>Or log in</h2>
-        <div className="login-option">
+        <div
+          className="login-option"
+          onClick={openModal}
+          style={{ cursor: "pointer" }}
+        >
           <div className="checkout-column">
             <FontAwesomeIcon icon={faUser} className="checkout-icon" />
             <h3>Log in / register</h3>
@@ -167,6 +182,13 @@ function OrderCheckout({
           <FontAwesomeIcon icon={faChevronLeft} className="faV-right" />
         </div>
       </div>
+      {showModal && (
+        <LoginModal
+          isRegister={isRegister}
+          setIsRegister={setIsRegister}
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 }

@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import localStorageManager from "../utils/localstoragemanager";
 
+import "../components/Cart/Order.css";
+
 function Order() {
   const [cart, setCart] = useState([]);
   const [checkout, setCheckout] = useState(false);
@@ -74,10 +76,6 @@ function Order() {
     setCheckout(true);
   };
 
-  const handleNext = () => {
-    setPayment(true);
-  };
-
   const handlePaymentMethod = (method) => {
     setSelectedPayment(method);
   };
@@ -126,11 +124,6 @@ function Order() {
               <h1>Back</h1>
             </button>
             <h1>{currentHeader()}</h1>
-            {details && !payment && (
-              <button id="next-btn" onClick={handleNext}>
-                Next
-              </button>
-            )}
           </div>
           {!checkout ? (
             <OrderMenu onProductSelect={handleProductSelect} />
