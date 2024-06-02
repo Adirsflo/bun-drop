@@ -28,12 +28,24 @@ function Order() {
     firstName: "",
     lastName: "",
   });
+  const [loggedInUser, setLoggedInUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const savedCart = localStorageManager.getLocalStorage("cart");
     if (savedCart) {
       setCart(savedCart);
+    }
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setLoggedInUser(user);
+      setUserDetails(user);
+      setDeliveryAddress({
+        address: user.address,
+        city: user.city,
+        zip: user.zip,
+      });
     }
   }, []);
 
@@ -96,6 +108,22 @@ function Order() {
     setUserDetails(details);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser");
+    setLoggedInUser(null);
+    setUserDetails({
+      email: "",
+      phone: "",
+      firstName: "",
+      lastName: "",
+    });
+    setDeliveryAddress({
+      address: "",
+      city: "",
+      zip: "",
+    });
+  };
+
   const currentHeader = () => {
     if (payment) {
       return "CHECKOUT - " + selectedPayment.toUpperCase();
@@ -145,6 +173,11 @@ function Order() {
               deliveryAddress={deliveryAddress}
               setDeliveryAddress={setDeliveryAddress}
               onNext={() => setDetails(true)}
+              onLogin={setLoggedInUser}
+              loggedInUser={loggedInUser}
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
+              onLogout={handleLogout}
             />
           )}
         </div>

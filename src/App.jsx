@@ -23,7 +23,7 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackgroundChanger from "./hooks/BackgroundChanger.jsx";
-import LoginModal from "./components/modals/LoginModal.jsx";
+import { AuthProvider } from "./hooks/AuthContext.jsx";
 
 // CSS & other
 import "./App.css";
@@ -32,40 +32,16 @@ import "@images/font_awesome/font_awesome.js";
 function AppContent() {
   const location = useLocation();
   const [currentLocation, setCurrentLocation] = useState("");
-  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     const { pathname } = location;
     setCurrentLocation(pathname);
   }, [location]);
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("loggedInUser");
-    if (storedUser) {
-      setLoggedInUser(JSON.parse(storedUser));
-    }
-  }, []);
-
-  const handleLogin = (user) => {
-    setLoggedInUser(user);
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
-  };
-
-  const handleLogout = () => {
-    setLoggedInUser(null);
-    localStorage.removeItem("loggedInUser");
-  };
-
   return (
     <>
       <BackgroundChanger />
-      {currentLocation === "/order" ? null : (
-        <Navbar
-          loggedInUser={loggedInUser}
-          onLogin={handleLogin}
-          onLogout={handleLogout}
-        />
-      )}
+      {currentLocation === "/order" ? null : <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
@@ -84,9 +60,11 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 

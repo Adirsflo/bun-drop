@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faCcVisa, faCcMastercard } from "@fortawesome/free-brands-svg-icons";
 import { generateOrderId } from "../../utils/utils";
+import { useAuth } from "../../hooks/AuthContext";
 
 function OrderCard({ orderDetails }) {
   const { cart = [], deliveryAddress, userDetails } = orderDetails;
@@ -13,6 +14,7 @@ function OrderCard({ orderDetails }) {
   const [errors, setErrors] = useState({});
   const [receiptId, setReceiptId] = useState("");
   const navigate = useNavigate();
+  const { user, loginWithUserData } = useAuth();
 
   useEffect(() => {
     const generatedReceiptId = generateUniqueOrderId();
@@ -98,7 +100,8 @@ function OrderCard({ orderDetails }) {
       };
 
       try {
-        const response = await fetch("http://localhost:3001/receipts", {
+        // Save receipt in receipts database
+        const receiptResponse = await fetch("http://localhost:3001/receipts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -106,13 +109,42 @@ function OrderCard({ orderDetails }) {
           body: JSON.stringify(receipt),
         });
 
-        if (!response.ok) {
+        if (!receiptResponse.ok) {
           throw new Error("Failed to save receipt");
+        }
+
+        // Update user in users database
+        if (user) {
+          const updatedUser = {
+            ...user,
+            receipts: [...user.receipts, { id: receiptId }],
+          };
+
+          const userResponse = await fetch(
+            `http://localhost:3001/users/${user.id}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(updatedUser),
+            }
+          );
+
+          if (!userResponse.ok) {
+            throw new Error("Failed to update user receipts");
+          }
+
+          loginWithUserData(updatedUser); // Update user context
         }
 
         navigate(`/confirmation/${receiptId}`);
       } catch (error) {
         console.error("Error saving receipt:", error);
+        setErrors({
+          general:
+            "There was an error processing your payment. Please try again.",
+        });
       }
     } else {
       setErrors(newErrors);
@@ -171,6 +203,7 @@ function OrderCard({ orderDetails }) {
         <FontAwesomeIcon icon={faLock} />
         <span> Pay</span>
       </button>
+      {errors.general && <div className="error">{errors.general}</div>}
     </div>
   );
 }

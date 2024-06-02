@@ -265,34 +265,20 @@
       "image": "./src/images/products/drinks/drink-6.png"
     }
   ],
-  "users": [],
-  "receipts": [
+  "users": [
     {
-      "id": "BD92784771",
-      "order": [
-        {
-          "id": "3",
-          "title": "Smoky BBQ Bliss",
-          "price": 64,
-          "description": "Dive into the savory delight of our Smoky BBQ Bliss burger. Featuring a juicy beef patty topped with melted cheddar cheese, crispy bacon, caramelized onions, tangy pickles, and a generous dollop of smoky BBQ sauce. All nestled in a toasted sesame seed brioche bun and finished with a hint of spicy mayo. Served with a side of golden fries and your choice of drink.",
-          "category": "burgers",
-          "image": "./src/images/products/burgers/burger-3.png",
-          "quantity": 1
-        }
-      ],
-      "total-amount": "64.00",
-      "vat": "16.00",
-      "contact": {
-        "email": "rida.abdal@gmail.com",
-        "phone": "0765595453",
-        "firstName": "Rida",
-        "lastName": "Abdal",
-        "address": "Codingstreet 1337",
-        "city": "Malmö",
-        "zip": "133337"
-      },
-      "orderDate": "2024-06-02",
-      "orderTime": "15:01:51"
+      "id": "d3a1",
+      "firstName": "User",
+      "lastName": "Usersson",
+      "email": "user@user.com",
+      "phone": "0713333337",
+      "address": "Codestreet 1337",
+      "city": "Malmö",
+      "zip": "13337",
+      "password": "password",
+      "confirmPassword": "password",
+      "receipts": []
     }
-  ]
+  ],
+  "receipts": []
 }

@@ -4,6 +4,7 @@ import swishText from "@images/payment/swish-text.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { generateOrderId } from "../../utils/utils";
+import { useAuth } from "../../hooks/AuthContext";
 
 function OrderSwish({ orderDetails }) {
   const { cart, deliveryAddress, userDetails } = orderDetails;
@@ -11,6 +12,7 @@ function OrderSwish({ orderDetails }) {
   const [errors, setErrors] = useState({});
   const [receiptId, setReceiptId] = useState("");
   const navigate = useNavigate();
+  const { user, loginWithUserData } = useAuth();
 
   useEffect(() => {
     const generatedReceiptId = generateUniqueOrderId();
@@ -73,7 +75,8 @@ function OrderSwish({ orderDetails }) {
       };
 
       try {
-        const response = await fetch("http://localhost:3001/receipts", {
+        // Save receipt in receipts database
+        const receiptResponse = await fetch("http://localhost:3001/receipts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -81,13 +84,42 @@ function OrderSwish({ orderDetails }) {
           body: JSON.stringify(receipt),
         });
 
-        if (!response.ok) {
+        if (!receiptResponse.ok) {
           throw new Error("Failed to save receipt");
+        }
+
+        // Update user in users database
+        if (user) {
+          const updatedUser = {
+            ...user,
+            receipts: [...user.receipts, { id: receiptId }],
+          };
+
+          const userResponse = await fetch(
+            `http://localhost:3001/users/${user.id}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(updatedUser),
+            }
+          );
+
+          if (!userResponse.ok) {
+            throw new Error("Failed to update user receipts");
+          }
+
+          loginWithUserData(updatedUser);
         }
 
         navigate(`/confirmation/${receiptId}`);
       } catch (error) {
         console.error("Error saving receipt:", error);
+        setErrors({
+          general:
+            "There was an error processing your payment. Please try again.",
+        });
       }
     } else {
       setErrors(newErrors);
@@ -112,6 +144,7 @@ function OrderSwish({ orderDetails }) {
         {errors.phoneNumber && (
           <div className="error">{errors.phoneNumber}</div>
         )}
+        {errors.general && <div className="error">{errors.general}</div>}
         <button onClick={handlePayClick}>
           <FontAwesomeIcon icon={faLock} />
           <span> Pay</span>

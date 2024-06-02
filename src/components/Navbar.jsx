@@ -9,10 +9,12 @@ import {
   faUserPen,
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../hooks/AuthContext";
 
-function Navbar({ loggedInUser, onLogin, onLogout }) {
+function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [isRegister, setIsRegister] = useState(true);
+  const { user, login, logout } = useAuth();
 
   const openModal = (isRegistering) => {
     setIsRegister(isRegistering);
@@ -22,13 +24,6 @@ function Navbar({ loggedInUser, onLogin, onLogout }) {
   const closeModal = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("loggedInUser");
-    if (storedUser) {
-      onLogin(JSON.parse(storedUser));
-    }
-  }, []);
 
   return (
     <>
@@ -53,18 +48,18 @@ function Navbar({ loggedInUser, onLogin, onLogout }) {
         </Link>
         <div id="nav-right">
           <div id="nav-container-btn">
-            {loggedInUser ? (
+            {user ? (
               <div id="nav-login">
-                <Link to="/receipts">
+                <Link>
                   <FontAwesomeIcon className="nav-icon" icon={faReceipt} />
                 </Link>
-                <Link to="/account">
+                <Link>
                   <FontAwesomeIcon className="nav-icon" icon={faUserPen} />
                 </Link>
-                <Link to="/favorites">
+                <Link>
                   <FontAwesomeIcon className="nav-icon" icon={faHeart} />
                 </Link>
-                <button className="btn-dark" onClick={onLogout}>
+                <button className="btn-dark" onClick={logout}>
                   LOG OUT
                 </button>
               </div>
@@ -97,7 +92,7 @@ function Navbar({ loggedInUser, onLogin, onLogout }) {
           isRegister={isRegister}
           setIsRegister={setIsRegister}
           closeModal={closeModal}
-          onLogin={onLogin}
+          onLogin={login}
         />
       )}
     </>

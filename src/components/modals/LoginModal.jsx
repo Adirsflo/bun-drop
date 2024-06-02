@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../hooks/AuthContext";
 
-function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
-  const [formData, setFormData] = useState({
+function LoginModal({ isRegister, setIsRegister, closeModal }) {
+  const [registerData, setRegisterData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -15,13 +16,28 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
     confirmPassword: "",
     receipts: [],
   });
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
   const [showWarning, setShowWarning] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
+  const { login } = useAuth();
 
-  const handleChange = (e) => {
+  const handleRegisterChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setRegisterData({
+      ...registerData,
+      [name]: value,
+    });
+  };
+
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
       [name]: value,
     });
   };
@@ -29,15 +45,15 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.address ||
-      !formData.city ||
-      !formData.zip ||
-      !formData.password ||
-      formData.password !== formData.confirmPassword
+      !registerData.firstName ||
+      !registerData.lastName ||
+      !registerData.email ||
+      !registerData.phone ||
+      !registerData.address ||
+      !registerData.city ||
+      !registerData.zip ||
+      !registerData.password ||
+      registerData.password !== registerData.confirmPassword
     ) {
       setShowWarning(true);
       setWarningMessage(
@@ -48,7 +64,7 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/users?email=${formData.email}`
+        `http://localhost:3001/users?email=${registerData.email}`
       );
       const existingUsers = await response.json();
       if (existingUsers.length > 0) {
@@ -68,12 +84,11 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(registerData),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
-        onLogin(data); // Log in the user after successful registration
+        login(registerData.email, registerData.password);
         closeModal();
       })
       .catch((error) => {
@@ -85,19 +100,11 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `http://localhost:3001/users?email=${formData.email}&password=${formData.password}`
-      );
-      const users = await response.json();
-      if (users.length > 0) {
-        onLogin(users[0]);
-        closeModal();
-      } else {
-        setShowWarning(true);
-        setWarningMessage("Invalid email or password.");
-      }
+      await login(loginData.email, loginData.password);
+      closeModal();
     } catch (error) {
-      console.error("Error logging in:", error);
+      setShowWarning(true);
+      setWarningMessage("Invalid email or password.");
     }
   };
 
@@ -117,72 +124,72 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
                 name="firstName"
                 placeholder="First name"
                 className="input"
-                value={formData.firstName}
-                onChange={handleChange}
+                value={registerData.firstName}
+                onChange={handleRegisterChange}
               />
               <input
                 type="text"
                 name="lastName"
                 placeholder="Last name"
                 className="input"
-                value={formData.lastName}
-                onChange={handleChange}
+                value={registerData.lastName}
+                onChange={handleRegisterChange}
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Email"
                 className="input"
-                value={formData.email}
-                onChange={handleChange}
+                value={registerData.email}
+                onChange={handleRegisterChange}
               />
               <input
                 type="text"
                 name="phone"
                 placeholder="Phone number"
                 className="input"
-                value={formData.phone}
-                onChange={handleChange}
+                value={registerData.phone}
+                onChange={handleRegisterChange}
               />
               <input
                 type="text"
                 name="address"
                 placeholder="Address"
                 className="input"
-                value={formData.address}
-                onChange={handleChange}
+                value={registerData.address}
+                onChange={handleRegisterChange}
               />
               <input
                 type="text"
                 name="city"
                 placeholder="City"
                 className="input"
-                value={formData.city}
-                onChange={handleChange}
+                value={registerData.city}
+                onChange={handleRegisterChange}
               />
               <input
                 type="text"
                 name="zip"
                 placeholder="Zip"
                 className="input"
-                value={formData.zip}
-                onChange={handleChange}
+                value={registerData.zip}
+                onChange={handleRegisterChange}
               />
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
                 className="input"
-                value={formData.password}
-                onChange={handleChange}
+                value={registerData.password}
+                onChange={handleRegisterChange}
               />
               <input
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm password"
                 className="input"
-                value={formData.confirmPassword}
-                onChange={handleChange}
+                value={registerData.confirmPassword}
+                onChange={handleRegisterChange}
               />
               <button className="btn" type="submit">
                 Register
@@ -199,16 +206,16 @@ function LoginModal({ isRegister, setIsRegister, closeModal, onLogin }) {
                 name="email"
                 placeholder="Email"
                 className="input"
-                value={formData.email}
-                onChange={handleChange}
+                value={loginData.email}
+                onChange={handleLoginChange}
               />
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
                 className="input"
-                value={formData.password}
-                onChange={handleChange}
+                value={loginData.password}
+                onChange={handleLoginChange}
               />
               <a href="#" className="link">
                 Forgot your password?

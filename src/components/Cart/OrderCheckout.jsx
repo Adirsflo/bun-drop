@@ -16,6 +16,8 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 
+import { useAuth } from "../../hooks/AuthContext";
+
 function OrderCheckout({
   onPaymentMethodSelect,
   selectedPayment,
@@ -32,10 +34,21 @@ function OrderCheckout({
   const [showModal, setShowModal] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+  const { user, login, logout } = useAuth();
 
   useEffect(() => {
     setCurrentPayment(selectedPayment);
   }, [selectedPayment]);
+
+  useEffect(() => {
+    if (user && user.contact) {
+      setDeliveryAddress({
+        address: user.contact.address,
+        city: user.contact.city,
+        zip: user.contact.zip,
+      });
+    }
+  }, [user]);
 
   const openModal = () => {
     setShowModal(true);
@@ -76,7 +89,6 @@ function OrderCheckout({
       setShowWarning(true);
     } else {
       setShowWarning(false);
-      // Proceed to OrderDetails
       onNext();
     }
   };
@@ -169,24 +181,34 @@ function OrderCheckout({
         </div>
       </div>
       <div className="checkout-section">
-        <h2>Or log in</h2>
-        <div
-          className="login-option"
-          onClick={openModal}
-          style={{ cursor: "pointer" }}
-        >
-          <div className="checkout-column">
-            <FontAwesomeIcon icon={faUser} className="checkout-icon" />
-            <h3>Log in / register</h3>
+        {user ? (
+          <div>
+            <h2>Welcome, {user?.firstName || "Guest"}!</h2>
+            <button onClick={() => logout()}>LOG OUT</button>
           </div>
-          <FontAwesomeIcon icon={faChevronLeft} className="faV-right" />
-        </div>
+        ) : (
+          <>
+            <h2>Or log in</h2>
+            <div
+              className="login-option"
+              onClick={openModal}
+              style={{ cursor: "pointer" }}
+            >
+              <div className="checkout-column">
+                <FontAwesomeIcon icon={faUser} className="checkout-icon" />
+                <h3>Log in / register</h3>
+              </div>
+              <FontAwesomeIcon icon={faChevronLeft} className="faV-right" />
+            </div>
+          </>
+        )}
       </div>
       {showModal && (
         <LoginModal
           isRegister={isRegister}
           setIsRegister={setIsRegister}
           closeModal={closeModal}
+          onLogin={login}
         />
       )}
     </div>

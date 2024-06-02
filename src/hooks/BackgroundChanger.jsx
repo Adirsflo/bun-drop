@@ -9,13 +9,13 @@ function BackgroundChanger() {
 
     switch (pathname) {
       case "/":
-        document.body.style.backgroundColor = "#fecdb7"; // Exempel: vit bakgrund för hemsidan
+        document.body.style.backgroundColor = "#fecdb7";
         break;
       case "/order":
-        document.body.style.backgroundColor = "#ebebea"; // Exempel: grå bakgrund för "om oss"-sidan
+        document.body.style.backgroundColor = "#ebebea";
         break;
       default:
-        document.body.style.backgroundColor = "#fecdb7"; // Standardfärg
+        document.body.style.backgroundColor = "#fecdb7";
         break;
     }
   }, [location]);
