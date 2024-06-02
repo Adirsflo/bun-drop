@@ -38,10 +38,6 @@ function OrderProduct({ product, onProductSelect }) {
     return "";
   }
 
-  function handleClick() {
-    onProductSelect(product);
-  }
-
   return (
     <>
       <div id="order-selection-product">
@@ -56,7 +52,10 @@ function OrderProduct({ product, onProductSelect }) {
             <FontAwesomeIcon icon={farHeart} className="regular-heart" />
           </span> */}
         </div>
-        <button className="order-selection-product-btn" onClick={handleClick}>
+        <button
+          className="order-selection-product-btn"
+          onClick={() => onProductSelect(product)}
+        >
           <div className="order-product-btn">
             <div className="osp-left">{formatTitle()}</div>
             <div className="osp-right">{product.price}:-</div>

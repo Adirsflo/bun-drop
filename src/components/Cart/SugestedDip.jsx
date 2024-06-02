@@ -4,7 +4,7 @@ function SugestedDip({ onContinue }) {
   return (
     <div>
       <button onClick={onContinue}>Continue</button>
-      <h1>Sugested Dip</h1>
+      <h2>Sugested Dip</h2>
       <p>Please choose a dip to go with your burger.</p>
     </div>
   );

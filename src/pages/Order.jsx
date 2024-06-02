@@ -1,91 +1,170 @@
 import React, { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import Cart from "../components/Cart/Cart";
 import OrderMenu from "../components/Cart/OrderMenu";
-import BurgerSelected from "../components/Cart/BurgerSelected";
-import SugestedDip from "../components/Cart/SugestedDip";
-
+import OrderCheckout from "../components/Cart/OrderCheckout";
+import OrderDetails from "../components/Cart/OrderDetails";
+import OrderPayment from "../components/Cart/OrderPayment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import localStorageManager from "../utils/localstoragemanager";
 
 function Order() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showBurgerSelected, setShowBurgerSelected] = useState(false);
-  const [showSugestedDip, setShowSugestedDip] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [checkout, setCheckout] = useState(false);
+  const [details, setDetails] = useState(false);
+  const [payment, setPayment] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState("credit");
+  const [deliveryAddress, setDeliveryAddress] = useState({
+    address: "",
+    city: "",
+    zip: "",
+  });
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    phone: "",
+    firstName: "",
+    lastName: "",
+  });
+  const navigate = useNavigate();
 
-  // Reset state when component mounts
   useEffect(() => {
-    setSelectedProduct(null);
-    setShowBurgerSelected(false);
-    setShowSugestedDip(false);
+    const savedCart = localStorageManager.getLocalStorage("cart");
+    if (savedCart) {
+      setCart(savedCart);
+    }
   }, []);
 
-  // Handle product of choice
+  useEffect(() => {
+    localStorageManager.setLocalStorage("cart", cart);
+  }, [cart]);
+
   const handleProductSelect = (product) => {
-    setSelectedProduct(product);
-    if (product.category === "burgers") {
-      setShowBurgerSelected(true);
-      setShowSugestedDip(false);
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
     } else {
-      setShowBurgerSelected(false);
-      setShowSugestedDip(true);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
 
-  // Handle the Back-button
-  const handleBackClick = () => {
-    if (showSugestedDip) {
-      setShowSugestedDip(false);
-      setShowBurgerSelected(true);
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    if (newQuantity === 0) {
+      setCart(cart.filter((item) => item.id !== productId));
     } else {
-      setSelectedProduct(null);
-      setShowBurgerSelected(false);
+      setCart(
+        cart.map((item) =>
+          item.id === productId ? { ...item, quantity: newQuantity } : item
+        )
+      );
     }
   };
 
-  // Handle the Add-button
-  const handleAddClick = () => {
-    setShowSugestedDip(true);
-    setShowBurgerSelected(false);
+  const handleRemoveProduct = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
   };
 
-  // Handle the Continue-button
-  const handleContinueClick = () => {
-    setSelectedProduct(null);
-    setShowSugestedDip(false);
+  const handleCheckout = () => {
+    setCheckout(true);
+  };
+
+  const handleNext = () => {
+    setPayment(true);
+  };
+
+  const handlePaymentMethod = (method) => {
+    setSelectedPayment(method);
+  };
+
+  const handleBack = () => {
+    if (payment) {
+      setPayment(false);
+    } else if (details) {
+      setDetails(false);
+    } else if (checkout) {
+      setCheckout(false);
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleUserDetailsChange = (details) => {
+    setUserDetails(details);
+  };
+
+  const currentHeader = () => {
+    if (payment) {
+      return "CHECKOUT - " + selectedPayment.toUpperCase();
+    } else if (details) {
+      return "YOUR DETAILS";
+    } else if (checkout) {
+      return "MY ORDER";
+    } else {
+      return "CHOOSE PRODUCTS";
+    }
+  };
+
+  const orderDetails = {
+    cart,
+    deliveryAddress,
+    userDetails,
   };
 
   return (
     <>
       <div id="order-view-container">
         <div id="order-view-left">
-          {!selectedProduct && (
-            <>
-              <button id="order-back-btn">
-                <Link to="/">
-                  <FontAwesomeIcon icon={faChevronLeft} className="faV-back" />
-                  <h1>Back</h1>
-                </Link>
+          <div id="order-nav">
+            <button id="order-back-btn" onClick={handleBack}>
+              <FontAwesomeIcon icon={faChevronLeft} className="faV-back" />
+              <h1>Back</h1>
+            </button>
+            <h1>{currentHeader()}</h1>
+            {details && !payment && (
+              <button id="next-btn" onClick={handleNext}>
+                Next
               </button>
-              <OrderMenu onProductSelect={handleProductSelect} />
-            </>
-          )}
-          {selectedProduct && showBurgerSelected && (
-            <BurgerSelected
-              product={selectedProduct}
-              onAdd={handleAddClick}
-              onBack={handleBackClick}
+            )}
+          </div>
+          {!checkout ? (
+            <OrderMenu onProductSelect={handleProductSelect} />
+          ) : payment ? (
+            <OrderPayment
+              selectedPayment={selectedPayment}
+              orderDetails={orderDetails}
             />
-          )}
-          {selectedProduct && showSugestedDip && (
-            <SugestedDip onContinue={handleContinueClick} />
+          ) : details ? (
+            <OrderDetails
+              userDetails={userDetails}
+              onNext={() => setPayment(true)}
+              onUserDetailsChange={handleUserDetailsChange}
+            />
+          ) : (
+            <OrderCheckout
+              onPaymentMethodSelect={handlePaymentMethod}
+              selectedPayment={selectedPayment}
+              deliveryAddress={deliveryAddress}
+              setDeliveryAddress={setDeliveryAddress}
+              onNext={() => setDetails(true)}
+            />
           )}
         </div>
         <div id="order-view-right-dummy"></div>
         <div id="order-view-right">
-          <Cart></Cart>
+          <Cart
+            cart={cart}
+            onUpdateQuantity={handleUpdateQuantity}
+            onRemoveProduct={handleRemoveProduct}
+            onCheckout={handleCheckout}
+            isLocked={checkout || details || payment}
+            showCheckout={!details && !payment && !checkout}
+          />
         </div>
       </div>
     </>

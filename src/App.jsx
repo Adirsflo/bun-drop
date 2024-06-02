@@ -56,7 +56,7 @@ function AppContent() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/menu/:productId" element={<Product />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/confirmation/:receiptId" element={<Confirmation />} />
         <Route path="/receipt" element={<Receipt />} />
         <Route path="/account" element={<Account />} />
         <Route path="/favorites" element={<Favorites />} />

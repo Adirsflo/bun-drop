@@ -265,7 +265,6 @@
       "image": "./src/images/products/drinks/drink-6.png"
     }
   ],
-  "cart": [],
   "users": [],
-  "receipt": []
+  "receipts": []
 }
