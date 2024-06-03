@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../hooks/AuthContext";
 
 function Product() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   const { productId } = useParams();
+  const { user, addFavorite, removeFavorite } = useAuth();
 
   useEffect(() => {
     setLoading(true);
@@ -25,6 +31,16 @@ function Product() {
         setLoading(false);
       });
   }, [productId]);
+
+  const isFavorite = user?.favorites.some((fav) => fav.id === productId);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      removeFavorite(productId);
+    } else {
+      addFavorite(product);
+    }
+  };
 
   function formatTitle() {
     const maxLength = 100;
@@ -89,7 +105,26 @@ function Product() {
           <div className="product-border-title-container">
             <h1 className="product-border-title">{formatTitle()}</h1>
           </div>
-          <h1 className="product-title">{product.title}</h1>
+          <div className="product-title-container">
+            <h1 className="product-title">{product.title} </h1>
+            <div
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={handleFavoriteClick}
+              className="heart-icon-container"
+            >
+              <FontAwesomeIcon
+                icon={isFavorite ? fasHeart : farHeart}
+                className={isFavorite ? "solid-heart" : "regular-heart"}
+              />
+              {isHovered && (
+                <FontAwesomeIcon
+                  icon={isFavorite ? farHeart : fasHeart}
+                  className="hover-heart"
+                />
+              )}
+            </div>
+          </div>
           <p>{product.description}</p>
         </div>
       )}

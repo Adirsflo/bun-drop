@@ -17,6 +17,45 @@ function Home() {
         </div>
         <img id="drop-hamburger" src={dropHamburger} alt="" />
       </div>
+      <section className="carousell-favorite">
+        <div className="carousell-favorite-container">
+          <div className="scroller">
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger1} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger2} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger3} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger4} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger5} alt="" />
+            </div>
+          </div>
+          <div className="scroller">
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger1} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger2} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger3} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger4} alt="" />
+            </div>
+            <div className="item">
+              <img className="favorite-burger-img" src={favBurger5} alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div id="favorite-container">
         <h1>OUR FAVORITE DROPS</h1>
         <ul className="favorite-burgers">

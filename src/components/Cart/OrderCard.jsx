@@ -62,14 +62,21 @@ function OrderCard({ orderDetails }) {
 
   const handlePayClick = async () => {
     const newErrors = {};
+    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
 
     if (cardNumber.replace(/\s/g, "").length !== 16) {
       newErrors.cardNumber = "Card number must be 16 digits";
     }
-    const [month] = expiryDate.split("/");
+
+    const [month, year] = expiryDate
+      .split("/")
+      .map((part) => parseInt(part, 10));
     if (!expiryDate.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
       newErrors.expiryDate = "Expiry date must be in MM/YY format";
+    } else if (year < currentYear) {
+      newErrors.expiryDate = "Expiry year must be current year or later";
     }
+
     if (!securityCode.match(/^\d{3}$/)) {
       newErrors.securityCode = "Security code must be 3 digits";
     }

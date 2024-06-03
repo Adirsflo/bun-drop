@@ -14,7 +14,7 @@ import Menu from "./pages/Menu";
 import Order from "./pages/Order";
 import Product from "./pages/Product";
 import Confirmation from "./pages/Confirmation";
-import Receipt from "./pages/Receipt";
+import Receipt from "./pages/Receipts.jsx";
 import Account from "./pages/Account";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
@@ -48,7 +48,7 @@ function AppContent() {
         <Route path="/menu/:productId" element={<Product />} />
         <Route path="/order" element={<Order />} />
         <Route path="/confirmation/:receiptId" element={<Confirmation />} />
-        <Route path="/receipt" element={<Receipt />} />
+        <Route path="/receipts" element={<Receipt />} />
         <Route path="/account" element={<Account />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFound />} />

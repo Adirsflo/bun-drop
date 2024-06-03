@@ -152,7 +152,7 @@ function OrderCheckout({
         </div>
       </div>
       <div className="checkout-section">
-        <h2>Pay as guest with</h2>
+        <h2>Pay with</h2>
         <div
           className="payment-option"
           onClick={() => handlePaymentSelect("credit")}

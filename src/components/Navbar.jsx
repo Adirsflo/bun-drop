@@ -50,13 +50,13 @@ function Navbar() {
           <div id="nav-container-btn">
             {user ? (
               <div id="nav-login">
-                <Link>
+                <Link to="/receipts">
                   <FontAwesomeIcon className="nav-icon" icon={faReceipt} />
                 </Link>
-                <Link>
+                <Link to="/account">
                   <FontAwesomeIcon className="nav-icon" icon={faUserPen} />
                 </Link>
-                <Link>
+                <Link to="favorites">
                   <FontAwesomeIcon className="nav-icon" icon={faHeart} />
                 </Link>
                 <button className="btn-dark" onClick={logout}>

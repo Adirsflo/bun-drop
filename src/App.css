@@ -28,32 +28,82 @@ button {
 .icon-wrapper {
   position: relative;
   display: inline-block;
-  width: 24px; /* Justera efter behov */
-  height: auto; /* Justera efter behov */
-}
-
-.icon-wrapper .solid-heart,
-.icon-wrapper .regular-heart {
-  position: absolute;
-  right: 40px;
-  bottom: 290px;
-
-  width: 31px;
+  width: 24px;
   height: auto;
 }
-
-.icon-wrapper .solid-heart {
-  color: red; /* Färg för solid ikonen */
-  position: absolute;
-  right: 42px;
-  bottom: 292px;
-
-  width: 27px;
-  height: auto;
+.heart-fav-container {
+  width: 10%;
 }
 
-.icon-wrapper .regular-heart {
-  color: black; /* Färg för regular ikonen */
+.heart-icon-fav {
+  color: #0a2328;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.heart-icon-fav.favorite {
+  color: #c52626;
+}
+
+.heart-icon-fav:hover {
+  color: #0a2328;
+}
+
+.heart-icon {
+  color: #0a2328;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.heart-icon-hover {
+  position: absolute;
+  color: #c52626;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.heart-icon:hover {
+  color: #c52626;
+}
+
+.heart-icon-hover:hover {
+  opacity: 1;
+}
+
+.heart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.regular-heart {
+  color: #0a2328;
+  font-size: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.solid-heart {
+  color: #c52626;
+  font-size: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.hover-heart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  color: #c52626;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.heart-icon-container:hover .regular-heart,
+.heart-icon-container:hover .solid-heart {
+  opacity: 0;
+}
+
+.heart-icon-container:hover .hover-heart {
+  opacity: 1;
 }
 
 /* BUTTONS */
@@ -370,7 +420,15 @@ button {
   font-size: 20px;
   color: #fefbf3;
   background-color: #aa4242;
-  border: 1px solid #aa4242;
+  border: 2px solid #aa4242;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.are-you-hungry button:hover {
+  color: #aa4242;
+  background-color: #fefbf3;
+  border: 2px solid #aa4242;
   cursor: pointer;
 }
 
@@ -524,7 +582,15 @@ button {
   bottom: 140px;
 }
 
+.product-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-title {
+  display: flex;
+  align-items: center;
   font-size: 96px;
   margin-bottom: 25px;
 }

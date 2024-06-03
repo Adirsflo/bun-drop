@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
 function MenuProduct(props) {
   function formatTitle() {
@@ -48,10 +45,7 @@ function MenuProduct(props) {
               src={`${props.product.image}`}
               alt=""
             />
-            <span className="icon-wrapper">
-              <FontAwesomeIcon icon={fasHeart} className="solid-heart" />
-              <FontAwesomeIcon icon={farHeart} className="regular-heart" />
-            </span>
+            <span className="icon-wrapper"></span>
           </div>
           <div className="menu-product-border">{formatTitle()}</div>
         </Link>

@@ -15,6 +15,7 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
     password: "",
     confirmPassword: "",
     receipts: [],
+    favorites: [],
   });
 
   const [loginData, setLoginData] = useState({
@@ -28,10 +29,20 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
 
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
-    setRegisterData({
-      ...registerData,
-      [name]: value,
-    });
+
+    // Filter out non-numeric characters for phone and zip fields
+    if (name === "phone" || name === "zip") {
+      const numericValue = value.replace(/\D/g, "");
+      setRegisterData({
+        ...registerData,
+        [name]: numericValue,
+      });
+    } else {
+      setRegisterData({
+        ...registerData,
+        [name]: value,
+      });
+    }
   };
 
   const handleLoginChange = (e) => {
@@ -78,6 +89,8 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
     }
 
     setShowWarning(false);
+
+    delete registerData.confirmPassword;
 
     fetch("http://localhost:3001/users", {
       method: "POST",
@@ -229,19 +242,15 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
           <div className="overlay-container">
             <div className="overlay">
               <div className="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>
-                  To keep connected with us please login with your personal info
-                </p>
+                <h2>Already have an account?</h2>
                 <button className="btn" onClick={() => setIsRegister(false)}>
-                  Sign In
+                  Login
                 </button>
               </div>
               <div className="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
+                <h2>Don't have an account yet?</h2>
                 <button className="btn" onClick={() => setIsRegister(true)}>
-                  Sign Up
+                  Register
                 </button>
               </div>
             </div>

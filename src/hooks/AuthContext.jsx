@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
+
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -36,13 +37,75 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
   };
 
+  const getLoggedInUser = () => {
+    return JSON.parse(localStorage.getItem("loggedInUser"));
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.removeItem("loggedInUser");
   };
 
+  const addFavorite = async (product) => {
+    if (user) {
+      const updatedUser = {
+        ...user,
+        favorites: [...user.favorites, product],
+      };
+
+      const response = await fetch(`http://localhost:3001/users/${user.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedUser),
+      });
+
+      if (response.ok) {
+        setUser(updatedUser);
+        localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+      }
+    }
+  };
+
+  const removeFavorite = async (productId) => {
+    if (user) {
+      const updatedFavorites = user.favorites.filter(
+        (fav) => fav.id !== productId
+      );
+
+      const updatedUser = {
+        ...user,
+        favorites: updatedFavorites,
+      };
+
+      const response = await fetch(`http://localhost:3001/users/${user.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedUser),
+      });
+
+      if (response.ok) {
+        setUser(updatedUser);
+        localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+      }
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, loginWithUserData, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        loginWithUserData,
+        getLoggedInUser,
+        logout,
+        addFavorite,
+        removeFavorite,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
