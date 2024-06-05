@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AreUHungry from "../components/AreUHungry";
-import MenuProduct from "../components/MenuProduct";
+
+// Components
+import AreUHungry from "../../components/AreUHungry";
+import MenuProduct from "../../components/MenuProduct";
+
+// CSS
+import "./Menu.css";
 
 function Menu() {
   const [products, setProducts] = useState([]);

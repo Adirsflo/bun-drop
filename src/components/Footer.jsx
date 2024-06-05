@@ -1,9 +1,13 @@
 import React from "react";
+
+// Router
 import { Link } from "react-router-dom";
-import brLabel from "../images/bun_drop/br-label.png";
-import swishIcon from "../images/payment/swish-icon.png";
-import mcIcon from "../images/payment/mastercard-logo.png";
-import visaLogo from "../images/payment/visa-logo.png";
+
+// Images & Font Awesome Icons
+import brLabel from "@images/bun_drop/br-label.png";
+import swishIcon from "@images/payment/swish-icon.png";
+import mcIcon from "@images/payment/mastercard-logo.png";
+import visaLogo from "@images/payment/visa-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSquareGithub,

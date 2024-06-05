@@ -1,0 +1,283 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+#drop-hamburger {
+  height: 530px;
+  width: auto;
+  position: relative;
+  bottom: 400px;
+  /* left: 240px; */
+}
+
+#drop-it-txt {
+  font-size: 70px;
+  position: relative;
+  top: 216px;
+  right: 203.9px;
+  line-height: 0.5;
+}
+
+#favorite-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1717;
+  color: #fefbf3;
+  padding: 10rem 0 43rem 0;
+  overflow: hidden;
+}
+
+#favorite-container h1 {
+  font-size: 79px;
+}
+
+.favorite-burgers {
+  height: 100%;
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.favorite-burger-img {
+  border-radius: 69px;
+  height: 100%;
+  margin: 3rem;
+  height: 300px;
+  width: auto;
+}
+
+#hungry-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: wrap;
+}
+
+#hungry-left {
+  display: flex;
+  justify-content: center;
+  height: 517px;
+  width: 50%;
+  background-color: #0a2328;
+  position: relative;
+}
+
+.are-you-hungry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbf3;
+  height: 258px;
+  width: 388px;
+  border-radius: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.are-you-hungry h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.are-you-hungry button {
+  height: 60px;
+  width: auto;
+  font-size: 20px;
+  color: #fefbf3;
+  background-color: #aa4242;
+  border: 2px solid #aa4242;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.are-you-hungry button:hover {
+  color: #aa4242;
+  background-color: #fefbf3;
+  border: 2px solid #aa4242;
+  cursor: pointer;
+}
+
+#drink-landing-img {
+  height: 638px;
+  width: auto;
+  transform: scaleX(-1);
+  position: relative;
+  right: 46%;
+  bottom: 8%;
+}
+
+#hungry-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fefbf3;
+  height: 517px;
+  width: 50%;
+}
+
+#hungry-right img {
+  height: 954px;
+  width: auto;
+  position: relative;
+  bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #drop-hamburger {
+    height: 250px;
+    width: auto;
+    position: relative;
+    bottom: 7rem;
+    /* left: 240px; */
+  }
+
+  #drop-it-txt {
+    font-size: 30px;
+    position: relative;
+    top: 12rem;
+    right: 0;
+    line-height: 0.5;
+    width: 100%;
+  }
+
+  #drop-text1 {
+    position: relative;
+    bottom: 11.7rem;
+    left: 1.6rem;
+    font-size: 50px;
+  }
+
+  #drop-text2 {
+    position: relative;
+    bottom: 1.6rem;
+    left: 2.8rem;
+    width: 100%;
+    font-size: 50px;
+  }
+
+  .favorite-burger-img {
+    width: 10rem;
+    height: auto;
+  }
+
+  #favorite-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1717;
+    color: #fefbf3;
+    padding: 6rem 0 19rem 0;
+    overflow: hidden;
+  }
+
+  #favorite-container h1 {
+    font-size: 32px;
+  }
+
+  .favorite-burger-img {
+    border-radius: 27px;
+    height: 100%;
+    margin: 0.5rem;
+    height: 125px;
+    width: auto;
+  }
+
+  #hungry-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: wrap;
+  }
+
+  #hungry-left {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    background-color: #0a2328;
+    position: relative;
+  }
+
+  .are-you-hungry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefbf3;
+    height: 230px;
+    width: 345px;
+    border-radius: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .are-you-hungry h1 {
+    font-size: 29px;
+    text-align: center;
+    position: relative;
+    top: 1rem;
+  }
+
+  .are-you-hungry button {
+    height: 60px;
+    width: 231px;
+    font-size: 20px;
+    color: #fefbf3;
+    background-color: #aa4242;
+    border: 2px solid #aa4242;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.4s;
+    position: relative;
+    bottom: 0.8rem;
+  }
+
+  #drink-landing-img {
+    height: 580px;
+    width: auto;
+    transform: scaleX(-1);
+    position: relative;
+    bottom: 2rem;
+  }
+
+  #hungry-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fefbf3;
+    height: 360px;
+    width: 100%;
+  }
+
+  #hungry-right img {
+    height: 670px;
+    width: auto;
+    position: relative;
+    bottom: 0.4rem;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../hooks/AuthContext";
+import { useAuth } from "../../hooks/AuthContext";
+import "./Account.css";
 
 function Account() {
   const { getLoggedInUser, loginWithUserData } = useAuth();

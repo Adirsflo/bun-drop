@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Cart from "../components/Cart/Cart";
-import OrderMenu from "../components/Cart/OrderMenu";
-import OrderCheckout from "../components/Cart/OrderCheckout";
-import OrderDetails from "../components/Cart/OrderDetails";
-import OrderPayment from "../components/Cart/OrderPayment";
+import Cart from "../../components/Cart/Cart";
+import OrderMenu from "../../components/Cart/OrderMenu";
+import OrderCheckout from "../../components/Cart/OrderCheckout";
+import OrderDetails from "../../components/Cart/OrderDetails";
+import OrderPayment from "../../components/Cart/OrderPayment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import localStorageManager from "../utils/localstoragemanager";
+import localStorageManager from "../../utils/localstoragemanager";
 
-import "../components/Cart/Order.css";
+import "./Order.css";
 
 function Order() {
   const [cart, setCart] = useState([]);

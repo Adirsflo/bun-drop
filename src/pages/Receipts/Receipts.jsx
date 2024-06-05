@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Receipt from "../components/Receipt";
-import { useAuth } from "../hooks/AuthContext";
+import Receipt from "../../components/Receipt";
+import { useAuth } from "../../hooks/AuthContext";
+import "./Receipts.css";
 
 function Receipts() {
   const [userReceipts, setUserReceipts] = useState([]);

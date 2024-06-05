@@ -443,6 +443,28 @@
       "password": "123123",
       "receipts": [],
       "favorites": []
+    },
+    {
+      "id": "fde9",
+      "firstName": "Rida",
+      "lastName": "Abdal",
+      "email": "rida.abdal@gmail.com",
+      "phone": "0765595453",
+      "address": "Granviksgatan 194",
+      "city": "Malmö",
+      "zip": "21458",
+      "password": "123",
+      "receipts": [],
+      "favorites": [
+        {
+          "id": "2",
+          "title": "Gourmet Melt",
+          "price": 59,
+          "description": "Indulge in the rich flavors of our Gourmet Melt burger. Featuring a perfectly grilled beef patty, melted Swiss cheese, caramelized onions, and sautéed mushrooms, all complemented by tangy pickled red onions and creamy aioli. Served on a toasted brioche bun with black and white sesame seeds. Accompanied by crispy fries and your choice of beverage.",
+          "category": "burgers",
+          "image": "./src/images/products/burgers/burger-2.png"
+        }
+      ]
     }
   ],
   "receipts": [

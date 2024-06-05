@@ -9,23 +9,23 @@ import {
 } from "react-router-dom";
 
 // Pages
-import Home from "./pages/Home";
-import Menu from "./pages/Menu";
-import Order from "./pages/Order";
-import Product from "./pages/Product";
-import Confirmation from "./pages/Confirmation";
-import Receipt from "./pages/Receipts.jsx";
-import Account from "./pages/Account";
-import Favorites from "./pages/Favorites";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home/Home";
+import Menu from "./pages/Menu/Menu";
+import Order from "./pages/Order/Order";
+import Product from "./pages/Product/Product";
+import Confirmation from "./pages/Confirmation/Confirmation";
+import Receipt from "./pages/Receipts/Receipts";
+import Account from "./pages/Account/Account";
+import Favorites from "./pages/Favorites/Favorites";
+import NotFound from "./pages/NotFound/NotFound";
 
-// Components
+// Components & Hooks
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackgroundChanger from "./hooks/BackgroundChanger.jsx";
 import { AuthProvider } from "./hooks/AuthContext.jsx";
 
-// CSS & other
+// CSS & Font Awesome icons
 import "./App.css";
 import "@images/font_awesome/font_awesome.js";
 

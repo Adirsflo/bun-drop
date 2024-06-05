@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Receipt from "../components/Receipt.jsx";
+import Receipt from "../../components/Receipt.jsx";
+import "./Confirmation.css";
 
 function Confirmation() {
   const { receiptId } = useParams();
