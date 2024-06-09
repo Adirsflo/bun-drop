@@ -18,7 +18,7 @@ För att starta JSON-servern, använd följande kommando:
 ```bash
 npx json-server --watch db.json --port 3001
 ```
-# Bun Drop - by Rida Abdal
+# Projektanalys
 
 ## Projektanalys: Bun Drop
 
