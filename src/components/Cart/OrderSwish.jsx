@@ -11,6 +11,7 @@ function OrderSwish({ orderDetails }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [errors, setErrors] = useState({});
   const [receiptId, setReceiptId] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const navigate = useNavigate();
   const { user, loginWithUserData } = useAuth();
 
@@ -24,6 +25,8 @@ function OrderSwish({ orderDetails }) {
     if (value.length <= 10) {
       setPhoneNumber(value);
     }
+    setIsTyping(true);
+    setErrors({});
   };
 
   const isUniqueOrderId = (orderId) => {
@@ -124,6 +127,8 @@ function OrderSwish({ orderDetails }) {
     } else {
       setErrors(newErrors);
     }
+
+    setIsTyping(false);
   };
 
   const totalAmount = cart.reduce(
@@ -132,32 +137,40 @@ function OrderSwish({ orderDetails }) {
   );
 
   return (
-    <div>
-      <div>
-        <h1>Phone number</h1>
-        <input
-          type="text"
-          placeholder="076 XXX XX XX"
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-        />
-        {errors.phoneNumber && (
-          <div className="error">{errors.phoneNumber}</div>
-        )}
-        {errors.general && <div className="error">{errors.general}</div>}
-        <button onClick={handlePayClick}>
-          <FontAwesomeIcon icon={faLock} />
-          <span> Pay</span>
-        </button>
-      </div>
-      <div>
-        <h2>Status:</h2>
-        <p>Please enter your phone number!</p>
-      </div>
-      <img src={swishText} alt="Swish" />
-      <div>
-        <p>Ordernumber: {receiptId}</p>
-        <p>Total amount: {totalAmount.toFixed(2)} kr</p>
+    <div className="swish-section-container">
+      <div className="swish-section-swish">
+        <div className="swish-section-top">
+          <h1>Phone number</h1>
+          <input
+            className="swish-section-input"
+            type="text"
+            placeholder="076 XXX XX XX"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+          />
+          <button className="swish-pay-btn" onClick={handlePayClick}>
+            <FontAwesomeIcon icon={faLock} />
+            <span> Pay</span>
+          </button>
+        </div>
+        <div className="swish-section-status">
+          <h2>Status:</h2>
+          {!phoneNumber && !errors.general && !errors.phoneNumber && (
+            <p>Please enter your phone number!</p>
+          )}
+          {isTyping && !errors.general && !errors.phoneNumber && (
+            <div className="spinner"></div>
+          )}
+          {errors.general && <p className="error-swish">{errors.general}</p>}
+          {errors.phoneNumber && (
+            <p className="error-swish">{errors.phoneNumber}</p>
+          )}
+        </div>
+        <img src={swishText} alt="Swish" />
+        <div className="swish-section-bottom">
+          <p>Ordernumber: {receiptId}</p>
+          <p>Total amount: {totalAmount.toFixed(2)} kr</p>
+        </div>
       </div>
     </div>
   );

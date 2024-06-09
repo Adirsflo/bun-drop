@@ -33,13 +33,13 @@ function Confirmation() {
 
   return (
     <>
-      <div>
+      <div id="conf-container">
         <Receipt receipt={receipt} />
-        {/* Passing receipt as a prop */}
-        <button>
-          <Link to="/order">Place another Drop!</Link>
-        </button>
+        {/* <div className="confirmation-background"></div> */}
       </div>
+      <Link to="/order">
+        <button className="another-order-btn">Place another Drop!</button>
+      </Link>
     </>
   );
 }

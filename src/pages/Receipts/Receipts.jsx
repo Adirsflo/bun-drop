@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Receipt from "../../components/Receipt";
 import { useAuth } from "../../hooks/AuthContext";
 import "./Receipts.css";
+import "../Confirmation/Confirmation.css";
 
 function Receipts() {
   const [userReceipts, setUserReceipts] = useState([]);
@@ -16,21 +17,19 @@ function Receipts() {
           const loggedInUser = getLoggedInUser();
 
           if (loggedInUser) {
-            const receiptsToDisplay = [];
+            const receiptsToDisplay = data.filter((receipt) =>
+              loggedInUser.receipts.some(
+                (userReceipt) => userReceipt.id === receipt.id
+              )
+            );
 
-            data.forEach((receipt) => {
-              if (
-                loggedInUser.receipts.some(
-                  (userReceipt) => userReceipt.id === receipt.id
-                )
-              ) {
-                receiptsToDisplay.push(receipt);
-              }
-            });
+            receiptsToDisplay.sort((a, b) => {
+              const dateA = new Date(`${a.orderDate}T${a.orderTime}`);
+              const dateB = new Date(`${b.orderDate}T${b.orderTime}`);
+              return dateA - dateB;
+            }); // Ändra sorteringsordningen till äldsta först med tid
 
             setUserReceipts(receiptsToDisplay);
-          } else {
-            console.log("NULL");
           }
         });
     }
@@ -46,23 +45,43 @@ function Receipts() {
 
   return (
     <>
-      <div>
-        <h1>MY ORDERS</h1>
-        {userReceipts.map((r) => (
-          <div key={r.id} onClick={() => handleReceiptDisplay(r)}>
-            <div>Receipt.no: {r.id}</div>
-            <div>
-              {r.orderDate} | {r.orderTime}
-            </div>
+      <div className="receipts-container">
+        <div className="receipts-container-left">
+          <h1>MY ORDERS</h1>
+          <div className="receipts-orders">
+            {[...userReceipts].reverse().map(
+              (
+                r,
+                index // Invertera ordningen vid rendering
+              ) => (
+                <div
+                  className={`receipts-order ${
+                    displayReceipt && displayReceipt.id === r.id
+                      ? "selected"
+                      : index % 2 === 0
+                      ? "even"
+                      : "odd"
+                  }`}
+                  key={r.id}
+                  onClick={() => handleReceiptDisplay(r)}
+                >
+                  <div>Receipt.no: {r.id}</div>
+                  <div>
+                    {r.orderDate} | {r.orderTime}
+                  </div>
+                </div>
+              )
+            )}
+            <div className="dummy-spacing" />
           </div>
-        ))}
-      </div>
-      <div>
-        {displayReceipt ? (
-          <Receipt receipt={displayReceipt} />
-        ) : (
-          "Select receipt to review"
-        )}
+        </div>
+        <div className="receipts-container-right">
+          {displayReceipt ? (
+            <Receipt receipt={displayReceipt} />
+          ) : (
+            "Select receipt to review"
+          )}
+        </div>
       </div>
     </>
   );

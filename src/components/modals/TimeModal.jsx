@@ -22,11 +22,12 @@ function TimeModal({ initialTime, onClose, onSave }) {
   ];
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modal-overlay">
+      <div className="time-modal-content">
         <h2>Select Delivery Time</h2>
         {times.map((time) => (
           <div key={time}>
+            <label htmlFor={time}>{time}</label>
             <input
               type="radio"
               id={time}
@@ -35,7 +36,6 @@ function TimeModal({ initialTime, onClose, onSave }) {
               checked={selectedTime === time}
               onChange={() => setSelectedTime(time)}
             />
-            <label htmlFor={time}>{time}</label>
           </div>
         ))}
         <button onClick={handleSave}>Save</button>

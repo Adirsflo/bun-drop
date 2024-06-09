@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
+
+// Images
 import mcIcon from "@images/payment/master-card-icon.webp";
 import swishLogo from "@images/payment/swish-logo.png";
+
+// Modal components
 import AddressModal from "../modals/AdressModal";
 import TimeModal from "../modals/TimeModal";
 import LoginModal from "../modals/LoginModal";
+
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHelicopterSymbol,
-  faChevronLeft,
   faCheck,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faClock,
@@ -16,6 +22,7 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 
+// Authorization hook
 import { useAuth } from "../../hooks/AuthContext";
 
 function OrderCheckout({
@@ -108,97 +115,101 @@ function OrderCheckout({
           onSave={handleSaveTime}
         />
       )}
-      <button onClick={handleNextClick}>Next</button>
-      <div className="checkout-section">
-        <h2>Select delivery address and time</h2>
+      <div className="next-btn-container">
+        <button className="next-btn" onClick={handleNextClick}>
+          Next
+          <FontAwesomeIcon icon={faChevronRight} className="faV-right-next" />
+        </button>
+      </div>
+      {showWarning && (
+        <div className="warning">Please fill in all address fields</div>
+      )}
+      <h2 className="section-delivery-title">
+        Select delivery address and time
+      </h2>
+      <div className="checkout-section-address">
         <div
-          className="checkout-row"
+          className="checkout-delivery"
           onClick={handleAddressClick}
           style={{ cursor: "pointer" }}
         >
-          <div className="checkout-column">
-            <FontAwesomeIcon
-              icon={faHelicopterSymbol}
-              className="checkout-icon"
-            />
-            <div>
-              <h4>Delivery address</h4>
-              <h3>{deliveryAddress?.address || "No address selected"}</h3>
-              <h3>
-                {deliveryAddress?.city || ""} {deliveryAddress?.zip || ""}
-              </h3>
-              {showWarning && (
-                <div className="warning">Please fill in all address fields</div>
-              )}
-            </div>
+          <FontAwesomeIcon
+            icon={faHelicopterSymbol}
+            className="checkout-icon"
+          />
+          <div className="checkout-delivery-information">
+            <h4>Delivery address</h4>
+            <h3>{deliveryAddress?.address || "No address selected"}</h3>
+            <h3>
+              {deliveryAddress?.city || ""} {deliveryAddress?.zip || ""}
+            </h3>
           </div>
-          <FontAwesomeIcon icon={faChevronLeft} className="faV-right" />
+          <FontAwesomeIcon icon={faChevronRight} className="faV-right" />
         </div>
         <div
-          className="checkout-row"
+          className="checkout-time"
           onClick={handleTimeClick}
           style={{ cursor: "pointer" }}
         >
-          <div className="checkout-column">
-            <FontAwesomeIcon icon={faClock} className="checkout-icon" />
-            <div>
-              <h4>Ready time</h4>
-              <button>
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <p>{deliveryTime}</p>
-              </button>
-            </div>
+          <FontAwesomeIcon icon={faClock} className="checkout-icon" />
+          <div>
+            <h4>Ready time</h4>
+            <button>
+              <FontAwesomeIcon icon={faCalendarDays} className="faV-calendar" />
+              <p>{deliveryTime}</p>
+            </button>
           </div>
         </div>
       </div>
-      <div className="checkout-section">
-        <h2>Pay with</h2>
+      <h2 className="section-payment-title">Pay with</h2>
+      <div className="checkout-section-payment">
         <div
-          className="payment-option"
+          className="checkout-credit"
           onClick={() => handlePaymentSelect("credit")}
           style={{ cursor: "pointer" }}
         >
-          <div className="checkout-column">
-            <img src={mcIcon} alt="Mastercard" className="payment-icon" />
+          <div className="checkout-payment-row">
+            <img src={mcIcon} alt="Mastercard" />
             <h3>Credit/debit card</h3>
           </div>
           {currentPayment === "credit" && (
-            <FontAwesomeIcon icon={faCheck} className="payment-check" />
+            <FontAwesomeIcon icon={faCheck} className="payment-check-credit" />
           )}
         </div>
         <div
-          className="payment-option"
+          className="checkout-swish"
           onClick={() => handlePaymentSelect("swish")}
           style={{ cursor: "pointer" }}
         >
-          <div className="checkout-column">
-            <img src={swishLogo} alt="Swish" className="payment-icon" />
-            <h3>Swish</h3>
+          <div className="checkout-payment-row">
+            <img src={swishLogo} alt="Swish" className="swish-logo" />
+            <h3 id="swish-title">Swish</h3>
           </div>
           {currentPayment === "swish" && (
-            <FontAwesomeIcon icon={faCheck} className="payment-check" />
+            <FontAwesomeIcon icon={faCheck} className="payment-check-swish" />
           )}
         </div>
       </div>
-      <div className="checkout-section">
+      <h2 className="section-login-title">Or log in</h2>
+      <div className="dummy-line"></div>
+      <div className="checkout-section-login">
         {user ? (
-          <div>
+          <>
             <h2>Welcome, {user?.firstName || "Guest"}!</h2>
-            <button onClick={() => logout()}>LOG OUT</button>
-          </div>
+            <button className="btn-dark" onClick={() => logout()}>
+              LOG OUT
+            </button>
+          </>
         ) : (
           <>
-            <h2>Or log in</h2>
             <div
-              className="login-option"
+              className="checkout-login"
               onClick={openModal}
               style={{ cursor: "pointer" }}
             >
-              <div className="checkout-column">
-                <FontAwesomeIcon icon={faUser} className="checkout-icon" />
-                <h3>Log in / register</h3>
-              </div>
-              <FontAwesomeIcon icon={faChevronLeft} className="faV-right" />
+              <FontAwesomeIcon icon={faUser} className="checkout-icon" />
+              <h3>Log in / register</h3>
+              <FontAwesomeIcon icon={faChevronRight} className="faV-right" />
             </div>
           </>
         )}

@@ -1,9 +1,5 @@
 import React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-
 function OrderProduct({ product, onProductSelect }) {
   function formatTitle() {
     const maxLength = 16;
@@ -40,17 +36,16 @@ function OrderProduct({ product, onProductSelect }) {
 
   return (
     <>
-      <div id="order-selection-product">
+      <div
+        id="order-selection-product"
+        onClick={() => onProductSelect(product)}
+      >
         <div id="order-selection-product-wrapper">
           <img
             className="order-selection-product-img"
             src={`${product.image}`}
             alt=""
           />
-          {/* <span className="icon-wrapper">
-            <FontAwesomeIcon icon={fasHeart} className="solid-heart" />
-            <FontAwesomeIcon icon={farHeart} className="regular-heart" />
-          </span> */}
         </div>
         <button
           className="order-selection-product-btn"

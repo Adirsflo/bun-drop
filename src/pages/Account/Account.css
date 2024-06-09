@@ -1,0 +1,152 @@
+.account-selection-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  height: auto;
+  background-color: #fefbf3;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  padding-bottom: auto;
+  margin-top: 1.5rem;
+}
+
+.account-left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 40rem;
+  background-color: #fefbf3;
+  border-radius: 12px 0 0 12px;
+}
+
+.save-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 21px;
+  width: 58px;
+  padding: 1rem;
+  font-size: 12px;
+  background-color: #fd9e72;
+  border: 1px solid #fd9e72;
+  color: #fefbf3;
+  cursor: pointer;
+}
+
+.account-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #ebebea;
+  width: 70%;
+  max-height: 100rem;
+  padding: 1rem 0;
+}
+
+.account-profile {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.account-profile h2 {
+  font-weight: lighter;
+}
+
+.account-profile-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.account-profile-inputs input {
+  height: 36px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: none;
+  padding-left: 1rem;
+  font-size: 16px;
+  background-color: #d9d9d9;
+}
+
+@media (max-width: 768px) {
+  .account-selection-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: auto;
+    background-color: #fefbf3;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    padding-bottom: auto;
+    margin-top: 1.5rem;
+  }
+
+  .account-left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    background-color: #fefbf3;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .save-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 21px;
+    width: 58px;
+    padding: 1rem;
+    font-size: 12px;
+    background-color: #fd9e72;
+    border: 1px solid #fd9e72;
+    color: #fefbf3;
+    cursor: pointer;
+  }
+
+  .account-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #ebebea;
+    width: 100%;
+    max-height: 100rem;
+    padding: 1rem 0;
+  }
+
+  .account-profile {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .account-profile h2 {
+    font-weight: lighter;
+  }
+
+  .account-profile-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .account-profile-inputs input {
+    height: 36px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: none;
+    padding-left: 1rem;
+    font-size: 16px;
+    background-color: #d9d9d9;
+  }
+}

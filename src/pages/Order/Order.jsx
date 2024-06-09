@@ -5,11 +5,10 @@ import OrderMenu from "../../components/Cart/OrderMenu";
 import OrderCheckout from "../../components/Cart/OrderCheckout";
 import OrderDetails from "../../components/Cart/OrderDetails";
 import OrderPayment from "../../components/Cart/OrderPayment";
+import "./Order.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import localStorageManager from "../../utils/localstoragemanager";
-
-import "./Order.css";
 
 function Order() {
   const [cart, setCart] = useState([]);
@@ -29,7 +28,21 @@ function Order() {
     lastName: "",
   });
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showCartModal, setShowCartModal] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const savedCart = localStorageManager.getLocalStorage("cart");
@@ -86,6 +99,7 @@ function Order() {
 
   const handleCheckout = () => {
     setCheckout(true);
+    setShowCartModal(false); // Stänger modalen när användaren går vidare till checkout
   };
 
   const handlePaymentMethod = (method) => {
@@ -142,57 +156,129 @@ function Order() {
     userDetails,
   };
 
+  const handleShowCartModal = () => {
+    setShowCartModal(!showCartModal);
+  };
+
   return (
     <>
-      <div id="order-view-container">
-        <div id="order-view-left">
-          <div id="order-nav">
-            <button id="order-back-btn" onClick={handleBack}>
-              <FontAwesomeIcon icon={faChevronLeft} className="faV-back" />
-              <h1>Back</h1>
-            </button>
-            <h1>{currentHeader()}</h1>
+      {isMobile ? (
+        <div id="order-view-container-mobile">
+          <div id="order-view-left-mobile">
+            <div id="order-nav">
+              <button id="order-back-btn-mobile" onClick={handleBack}>
+                <FontAwesomeIcon icon={faChevronLeft} className="faV-back" />
+                <h1>Back</h1>
+              </button>
+              <h1 id="currentHeader-mobile">{currentHeader()}</h1>
+            </div>
+            {!checkout ? (
+              <OrderMenu onProductSelect={handleProductSelect} />
+            ) : payment ? (
+              <OrderPayment
+                selectedPayment={selectedPayment}
+                orderDetails={orderDetails}
+              />
+            ) : details ? (
+              <OrderDetails
+                userDetails={userDetails}
+                onNext={() => setPayment(true)}
+                onUserDetailsChange={handleUserDetailsChange}
+              />
+            ) : (
+              <OrderCheckout
+                onPaymentMethodSelect={handlePaymentMethod}
+                selectedPayment={selectedPayment}
+                deliveryAddress={deliveryAddress}
+                setDeliveryAddress={setDeliveryAddress}
+                onNext={() => setDetails(true)}
+                onLogin={setLoggedInUser}
+                loggedInUser={loggedInUser}
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                onLogout={handleLogout}
+              />
+            )}
           </div>
-          {!checkout ? (
-            <OrderMenu onProductSelect={handleProductSelect} />
-          ) : payment ? (
-            <OrderPayment
-              selectedPayment={selectedPayment}
-              orderDetails={orderDetails}
-            />
-          ) : details ? (
-            <OrderDetails
-              userDetails={userDetails}
-              onNext={() => setPayment(true)}
-              onUserDetailsChange={handleUserDetailsChange}
-            />
-          ) : (
-            <OrderCheckout
-              onPaymentMethodSelect={handlePaymentMethod}
-              selectedPayment={selectedPayment}
-              deliveryAddress={deliveryAddress}
-              setDeliveryAddress={setDeliveryAddress}
-              onNext={() => setDetails(true)}
-              onLogin={setLoggedInUser}
-              loggedInUser={loggedInUser}
-              userDetails={userDetails}
-              setUserDetails={setUserDetails}
-              onLogout={handleLogout}
-            />
+          {!showCartModal && (
+            <button id="checkout-btn-mobile" onClick={handleShowCartModal}>
+              Cart
+            </button>
+          )}
+          {showCartModal && (
+            <>
+              <div className="cart-modal">
+                <div className="cart-modal-content">
+                  <button
+                    className="cart-modal-close-btn"
+                    onClick={handleShowCartModal}
+                  >
+                    Back
+                  </button>
+                  <Cart
+                    cart={cart}
+                    onUpdateQuantity={handleUpdateQuantity}
+                    onRemoveProduct={handleRemoveProduct}
+                    onCheckout={handleCheckout}
+                    isLocked={checkout || details || payment}
+                    showCheckout={!details && !payment && !checkout}
+                  />
+                </div>
+              </div>
+            </>
           )}
         </div>
-        <div id="order-view-right-dummy"></div>
-        <div id="order-view-right">
-          <Cart
-            cart={cart}
-            onUpdateQuantity={handleUpdateQuantity}
-            onRemoveProduct={handleRemoveProduct}
-            onCheckout={handleCheckout}
-            isLocked={checkout || details || payment}
-            showCheckout={!details && !payment && !checkout}
-          />
+      ) : (
+        <div id="order-view-container">
+          <div id="order-view-left">
+            <div id="order-nav">
+              <button id="order-back-btn" onClick={handleBack}>
+                <FontAwesomeIcon icon={faChevronLeft} className="faV-back" />
+                <h1>Back</h1>
+              </button>
+              <h1 id="currentHeader">{currentHeader()}</h1>
+            </div>
+            {!checkout ? (
+              <OrderMenu onProductSelect={handleProductSelect} />
+            ) : payment ? (
+              <OrderPayment
+                selectedPayment={selectedPayment}
+                orderDetails={orderDetails}
+              />
+            ) : details ? (
+              <OrderDetails
+                userDetails={userDetails}
+                onNext={() => setPayment(true)}
+                onUserDetailsChange={handleUserDetailsChange}
+              />
+            ) : (
+              <OrderCheckout
+                onPaymentMethodSelect={handlePaymentMethod}
+                selectedPayment={selectedPayment}
+                deliveryAddress={deliveryAddress}
+                setDeliveryAddress={setDeliveryAddress}
+                onNext={() => setDetails(true)}
+                onLogin={setLoggedInUser}
+                loggedInUser={loggedInUser}
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                onLogout={handleLogout}
+              />
+            )}
+          </div>
+          <div id="order-view-right-dummy"></div>
+          <div id="order-view-right">
+            <Cart
+              cart={cart}
+              onUpdateQuantity={handleUpdateQuantity}
+              onRemoveProduct={handleRemoveProduct}
+              onCheckout={handleCheckout}
+              isLocked={checkout || details || payment}
+              showCheckout={!details && !payment && !checkout}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

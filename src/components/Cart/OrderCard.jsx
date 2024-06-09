@@ -62,7 +62,7 @@ function OrderCard({ orderDetails }) {
 
   const handlePayClick = async () => {
     const newErrors = {};
-    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+    const currentYear = new Date().getFullYear() % 100;
 
     if (cardNumber.replace(/\s/g, "").length !== 16) {
       newErrors.cardNumber = "Card number must be 16 digits";
@@ -159,54 +159,61 @@ function OrderCard({ orderDetails }) {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <FontAwesomeIcon icon={faCreditCard} />
+    <div className="card-section-container">
+      <div className="card-section-top">
+        <div className="card-section-top-txt">
+          <FontAwesomeIcon icon={faCreditCard} className="credit-icon" />
           <h1>Cards</h1>
         </div>
-        <div>
-          <FontAwesomeIcon icon={faCcVisa} />
-          <FontAwesomeIcon icon={faCcMastercard} />
+        <div className="card-section-top-icons">
+          <FontAwesomeIcon icon={faCcVisa} className="payment-icon" />
+          <FontAwesomeIcon icon={faCcMastercard} className="payment-icon" />
         </div>
       </div>
-      <div>
-        <h1>Card number</h1>
-        <input
-          type="text"
-          placeholder="1234 5678 9012 3456"
-          value={cardNumber}
-          onChange={handleCardNumberChange}
-        />
-        {errors.cardNumber && <div className="error">{errors.cardNumber}</div>}
-      </div>
-      <div>
-        <div>
-          <h1>Expiry date</h1>
+      <div className="card-section-card-container">
+        <div className="card-section-card">
+          <h1>Card number</h1>
           <input
+            className="card-section-card-input"
             type="text"
-            placeholder="MM/YY"
-            value={expiryDate}
-            onChange={handleExpiryDateChange}
+            placeholder="1234 5678 9012 3456"
+            value={cardNumber}
+            onChange={handleCardNumberChange}
           />
-          {errors.expiryDate && (
-            <div className="error">{errors.expiryDate}</div>
+          {errors.cardNumber && (
+            <div className="error">{errors.cardNumber}</div>
           )}
         </div>
-        <div>
-          <h1>Security code</h1>
-          <input
-            type="text"
-            placeholder="3 digits"
-            value={securityCode}
-            onChange={handleSecurityCodeChange}
-          />
-          {errors.securityCode && (
-            <div className="error">{errors.securityCode}</div>
-          )}
+        <div className="card-section-exp-cvc">
+          <div className="card-section-exp">
+            <h1>Expiry date</h1>
+            <input
+              className="card-section-exp-cvc-input"
+              type="text"
+              placeholder="MM/YY"
+              value={expiryDate}
+              onChange={handleExpiryDateChange}
+            />
+            {errors.expiryDate && (
+              <div className="error">{errors.expiryDate}</div>
+            )}
+          </div>
+          <div className="card-section-cvc">
+            <h1>Security code</h1>
+            <input
+              className="card-section-exp-cvc-input"
+              type="text"
+              placeholder="3 digits"
+              value={securityCode}
+              onChange={handleSecurityCodeChange}
+            />
+            {errors.securityCode && (
+              <div className="error">{errors.securityCode}</div>
+            )}
+          </div>
         </div>
       </div>
-      <button onClick={handlePayClick}>
+      <button className="card-pay-btn" onClick={handlePayClick}>
         <FontAwesomeIcon icon={faLock} />
         <span> Pay</span>
       </button>

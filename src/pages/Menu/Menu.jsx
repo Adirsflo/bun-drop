@@ -41,7 +41,7 @@ function Menu() {
         <div>
           <h1>MENU</h1>
         </div>
-        <div>
+        <div id="category-select-wrapper">
           <ul>
             {categories.map((category) => (
               <li

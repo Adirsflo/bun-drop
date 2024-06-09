@@ -139,17 +139,17 @@ function Account() {
 
   return (
     <>
-      <div>
+      <div className="account-selection-container">
         {getLoggedInUser() ? (
           <>
-            <div>
+            <div className="account-left-container">
               <h1>Account</h1>
             </div>
-            <div>
-              <div>
+            <div className="account-right-container">
+              <div className="account-profile">
                 <h2>My profile</h2>
                 {profileError && <div className="error">{profileError}</div>}
-                <div>
+                <div className="account-profile-inputs">
                   <input
                     type="text"
                     name="firstName"
@@ -201,16 +201,18 @@ function Account() {
                   />
                 </div>
                 <div>
-                  <button onClick={handleSaveProfile}>Save</button>
+                  <button className="save-btn" onClick={handleSaveProfile}>
+                    Save
+                  </button>
                 </div>
               </div>
-              <div>
-                <div>
+              <div className="account-profile">
+                <div className="account-profile-inputs">
                   <h2>Password</h2>
                   {passwordError && (
                     <div className="error">{passwordError}</div>
                   )}
-                  <div className="password-inputs">
+                  <div className="account-profile-input">
                     <input
                       type="password"
                       name="currentPassword"
@@ -234,7 +236,9 @@ function Account() {
                     />
                   </div>
                   <div>
-                    <button onClick={handleSavePassword}>Save</button>
+                    <button className="save-btn" onClick={handleSavePassword}>
+                      Save
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,0 +1,564 @@
+#conf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+}
+
+.another-order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+  width: 230px;
+  background-color: #0a2328;
+  color: #fefbf3;
+  border-radius: 8px;
+  border: 1px solid #0a2328;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.another-order-btn:hover {
+  background-color: #fefbf3;
+  color: #0a2328;
+  border: 1px solid #fefbf3;
+}
+
+/* TOP CONTAINER */
+
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 40rem;
+  background-color: #ebebea;
+}
+
+#receiptId {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 2rem;
+  /* position: relative;
+  right: 20.5rem; */
+  font-size: 13px;
+  opacity: 33%;
+}
+
+.confirmation-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0%;
+}
+
+.confirmation-top h3 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.confirmation-top img {
+  height: 57px;
+  width: auto;
+  position: relative;
+  bottom: 0.6rem;
+}
+
+.confirmation-top h5 {
+  font-size: 12px;
+  font-weight: lighter;
+  position: relative;
+  bottom: 1.5rem;
+}
+
+/* BOTTOM CONTAINER */
+
+.order-details-header-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+}
+
+/* ORDER LEFT */
+
+.order-details-header {
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+  border: none;
+  border-bottom: 1px solid #0a2328;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.confirmation-bottom {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
+.dummy-seperation {
+  height: 22rem;
+  border-right: 1px solid #0a2328;
+}
+
+.confirmation-bottom-left {
+  flex: 1;
+  height: 55%;
+  /* border-right: 1px solid #0a2328; */
+}
+
+.confirmation-order-details-top {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  max-height: 40rem;
+  width: auto;
+  line-height: 0%;
+  position: relative;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.confirmation-order-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -0.4rem;
+}
+
+.confirmation-order-detail h3 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.confirmation-order-detail h4 {
+  font-size: 14px;
+  font-weight: lighter;
+  color: #aa4242;
+  margin-right: 1rem;
+}
+
+.dummy-confirmation-bar {
+  border-top: 1px solid #0a2328;
+  margin-top: 2rem;
+  width: 50%;
+}
+
+.confirmation-order-details-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.confirmation-total-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confirmation-total-container h2,
+.confirmation-vat-container h2 {
+  margin: 0 1rem 0 0;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.confirmation-total-container h2 {
+  margin-top: 1rem;
+}
+
+.confirmation-vat-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ORDER RIGHT */
+
+.confirmation-bottom-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  padding-left: 2rem;
+}
+
+.confirmation-contacts {
+  line-height: 0;
+}
+
+.confirmation-contacts h4 {
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+.confirmation-contacts h5 {
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+.confirmation-drop-location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e1e1e0;
+  height: 16rem;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.confirmation-drop-location-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.confirmation-drop-top {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.confirmation-drop-top h1 {
+  font-size: 12px;
+  font-weight: lighter;
+  opacity: 60%;
+}
+.confirmation-drop-top h2 {
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 0.5rem;
+}
+
+.dummy-dashed-container {
+  display: flex;
+}
+
+.dummy-dashed {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rem;
+  border-bottom: 3px dashed #fd9e72;
+  width: 90%;
+}
+
+.confirmation-status-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  line-height: 0;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.confirmation-status-container h1 {
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+@media (max-width: 768px) {
+  #conf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 85%;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .another-order-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    width: 230px;
+    background-color: #0a2328;
+    color: #fefbf3;
+    border-radius: 8px;
+    border: 1px solid #0a2328;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 3rem 0;
+    transition: all 0.4s;
+  }
+
+  .another-order-btn:hover {
+    background-color: #fefbf3;
+    color: #0a2328;
+    border: 1px solid #fefbf3;
+  }
+
+  /* TOP CONTAINER */
+
+  .confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ebebea;
+    padding-bottom: 0rem;
+    margin-bottom: 0rem;
+  }
+
+  #receiptId {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 2rem;
+    font-size: 13px;
+    opacity: 33%;
+  }
+
+  .confirmation-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0%;
+  }
+
+  .confirmation-top h3 {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .confirmation-top img {
+    height: 51px;
+    width: auto;
+    position: relative;
+    bottom: 0.6rem;
+  }
+
+  .confirmation-top h5 {
+    font-size: 12px;
+    font-weight: lighter;
+    position: relative;
+    bottom: 1.5rem;
+  }
+
+  /* BOTTOM CONTAINER */
+
+  .order-details-header-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+  }
+
+  /* ORDER LEFT */
+
+  .order-details-header {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid #0a2328;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .confirmation-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: calc(
+      100% - 50px
+    ); /* Adjust this value according to the height of elements above */
+  }
+
+  .dummy-seperation {
+    display: flex;
+    flex-direction: row;
+    height: 0rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    width: 100%;
+    border-top: 1px solid #0a2328;
+  }
+
+  .confirmation-bottom-left {
+    flex: 1;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .confirmation-order-details-top {
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+    max-height: 10rem;
+    width: auto;
+    line-height: 0%;
+    overflow-y: auto;
+  }
+
+  .confirmation-order-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -0.4rem;
+  }
+
+  .confirmation-order-detail h3 {
+    font-size: 16px;
+    font-weight: lighter;
+  }
+
+  .confirmation-order-detail h4 {
+    font-size: 14px;
+    font-weight: lighter;
+    color: #aa4242;
+    margin-right: 1rem;
+  }
+
+  .dummy-confirmation-bar {
+    border-top: 1px solid #0a2328;
+    margin-top: 2rem;
+    width: 60%;
+  }
+
+  .confirmation-order-details-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .confirmation-total-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .confirmation-total-container h2,
+  .confirmation-vat-container h2 {
+    margin: 0 1rem 0 0;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  .confirmation-total-container h2 {
+    margin-top: 1rem;
+  }
+
+  .confirmation-vat-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem; /* Adjust this value to fit your needs */
+  }
+
+  /* ORDER RIGHT */
+
+  .confirmation-bottom-right {
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+    height: 100%;
+    padding-left: 1rem;
+    padding-bottom: 0;
+  }
+
+  .confirmation-contacts {
+    line-height: 0;
+  }
+
+  .confirmation-contacts h4 {
+    font-size: 13px;
+    font-weight: lighter;
+  }
+
+  .confirmation-contacts h5 {
+    font-size: 10px;
+    font-weight: lighter;
+  }
+
+  .confirmation-drop-location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1e1e0;
+    height: 16rem;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .confirmation-drop-location-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .confirmation-drop-top {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .confirmation-drop-top h1 {
+    font-size: 12px;
+    font-weight: lighter;
+    opacity: 60%;
+  }
+
+  .confirmation-drop-top h2 {
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 0.5rem;
+  }
+
+  .dummy-dashed-container {
+    display: flex;
+  }
+
+  .dummy-dashed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rem;
+    border-bottom: 3px dashed #fd9e72;
+    width: 90%;
+  }
+
+  .confirmation-status-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    line-height: 0;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .confirmation-status-container h1 {
+    font-size: 13px;
+    font-weight: lighter;
+  }
+}

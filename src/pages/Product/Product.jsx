@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useAuth } from "../../hooks/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-import { useParams } from "react-router-dom";
-import { useAuth } from "../../hooks/AuthContext";
 import "./Product.css";
+import LoginModal from "../../components/modals/LoginModal";
 
 function Product() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [showModal, setShowModal] = useState(false); // State för att visa modalen
+  const [isRegister, setIsRegister] = useState(false); // State för att hantera registreringsläge
 
   const { productId } = useParams();
-  const { user, addFavorite, removeFavorite } = useAuth();
+  const { user, addFavorite, removeFavorite, login } = useAuth(); // Inkludera login-funktionen
 
   useEffect(() => {
     setLoading(true);
@@ -36,11 +39,17 @@ function Product() {
   const isFavorite = user?.favorites.some((fav) => fav.id === productId);
 
   const handleFavoriteClick = () => {
-    if (isFavorite) {
+    if (!user) {
+      setShowModal(true); // Visa modalen om användaren inte är inloggad
+    } else if (isFavorite) {
       removeFavorite(productId);
     } else {
       addFavorite(product);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Stäng modalen
   };
 
   function formatTitle() {
@@ -128,6 +137,14 @@ function Product() {
           </div>
           <p>{product.description}</p>
         </div>
+      )}
+      {showModal && (
+        <LoginModal
+          isRegister={isRegister}
+          setIsRegister={setIsRegister}
+          closeModal={closeModal}
+          onLogin={login}
+        />
       )}
     </>
   );

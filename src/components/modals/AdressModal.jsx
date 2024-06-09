@@ -16,9 +16,16 @@ function AddressModal({ onClose, onSave }) {
     }
   };
 
+  const handleZipChange = (e) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setZip(value);
+    }
+  };
+
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modal-overlay">
+      <div className="address-modal-content">
         <h2>Enter Delivery Address</h2>
         <input
           type="text"
@@ -36,7 +43,7 @@ function AddressModal({ onClose, onSave }) {
           type="text"
           placeholder="Zip"
           value={zip}
-          onChange={(e) => setZip(e.target.value)}
+          onChange={handleZipChange}
         />
         {showWarning && (
           <div className="warning">Please fill in all fields</div>

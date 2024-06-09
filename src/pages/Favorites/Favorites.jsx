@@ -55,61 +55,61 @@ function Favorites() {
 
   return (
     <>
-      <div>
-        <h2>MY FAVORITES</h2>
-        <div>
-          <div onClick={() => handleCategorySelect("burgers")}>
-            <h3>BURGERS</h3>
-            <h3>QUANTITY: {categories.burgers.length}</h3>
-          </div>
-          <div onClick={() => handleCategorySelect("sides")}>
-            <h3>SIDES</h3>
-            <h3>QUANTITY: {categories.sides.length}</h3>
-          </div>
-          <div onClick={() => handleCategorySelect("dips")}>
-            <h3>DIPS</h3>
-            <h3>QUANTITY: {categories.dips.length}</h3>
-          </div>
-          <div onClick={() => handleCategorySelect("sweets")}>
-            <h3>SWEETS & SMOOTHIES</h3>
-            <h3>QUANTITY: {categories.sweets.length}</h3>
-          </div>
-          <div onClick={() => handleCategorySelect("drinks")}>
-            <h3>DRINKS</h3>
-            <h3>QUANTITY: {categories.drinks.length}</h3>
+      <div className="favorites-selection-container">
+        <div className="favorites-left-container">
+          <h1>MY FAVORITES</h1>
+          <div>
+            {Object.keys(categories).map((category, index) => (
+              <div
+                className={`favorites-category ${
+                  selectedCategory === category
+                    ? "selected"
+                    : index % 2 === 0
+                    ? "even"
+                    : "odd"
+                }`}
+                key={category}
+                onClick={() => handleCategorySelect(category)}
+              >
+                <h3>{category.toUpperCase()}</h3>
+                <h4>{categories[category].length}</h4>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div>
-        {categories[selectedCategory].map((product) => (
-          <div key={product.id}>
-            <img src={product.image} alt={product.title} />
-            <h4>{product.title}</h4>
-            <div
-              onMouseEnter={() => setHoveredItem(product.id)}
-              onMouseLeave={() => setHoveredItem(null)}
-              onClick={() => handleFavoriteClick(product)}
-              className="heart-fav-container"
-            >
-              <FontAwesomeIcon
-                icon={
-                  user.favorites.some((fav) => fav.id === product.id)
-                    ? hoveredItem === product.id
-                      ? farHeart
-                      : fasHeart
-                    : hoveredItem === product.id
-                    ? fasHeart
-                    : farHeart
-                }
-                className={`heart-icon-fav ${
-                  user.favorites.some((fav) => fav.id === product.id)
-                    ? "favorite"
-                    : ""
-                }`}
-              />
-            </div>
+        <div className="favorites-right-container">
+          <div className="favorites-right-grid">
+            {categories[selectedCategory].map((product) => (
+              <div className="favorites-product" key={product.id}>
+                <img src={product.image} alt={product.title} />
+                <h4>{product.title}</h4>
+                <div
+                  onMouseEnter={() => setHoveredItem(product.id)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  onClick={() => handleFavoriteClick(product)}
+                  className="heart-fav-container"
+                >
+                  <FontAwesomeIcon
+                    icon={
+                      user.favorites.some((fav) => fav.id === product.id)
+                        ? hoveredItem === product.id
+                          ? farHeart
+                          : fasHeart
+                        : hoveredItem === product.id
+                        ? fasHeart
+                        : farHeart
+                    }
+                    className={`heart-icon-fav ${
+                      user.favorites.some((fav) => fav.id === product.id)
+                        ? "favorite"
+                        : ""
+                    }`}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </>
   );

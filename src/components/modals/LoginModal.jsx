@@ -30,7 +30,6 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
 
-    // Filter out non-numeric characters for phone and zip fields
     if (name === "phone" || name === "zip") {
       const numericValue = value.replace(/\D/g, "");
       setRegisterData({
@@ -100,7 +99,7 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
       body: JSON.stringify(registerData),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         login(registerData.email, registerData.password);
         closeModal();
       })
@@ -122,11 +121,11 @@ function LoginModal({ isRegister, setIsRegister, closeModal }) {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="modal-overlay-login">
+      <div className="login-modal-content">
         <div className={`container ${isRegister ? "right-panel-active" : ""}`}>
           <button className="close-btn" onClick={closeModal}>
-            <FontAwesomeIcon icon={faXmark} />
+            <FontAwesomeIcon className="x-btn" icon={faXmark} />
           </button>
           <div className="form-container sign-up-container">
             <form className="form" onSubmit={handleRegister}>
