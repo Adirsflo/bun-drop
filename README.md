@@ -12,10 +12,12 @@ npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/free-regular-svg-icons
 npm install --save @fortawesome/free-brands-svg-icons
 npm install --save @fortawesome/react-fontawesome@latest
+```
 
 För att starta JSON-servern, använd följande kommando:
+```bash
 npx json-server --watch db.json --port 3001
-
+```
 
 Projektanalys: Bun Drop
 Projektbeskrivning och syfte:
