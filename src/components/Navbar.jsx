@@ -36,7 +36,7 @@ function Navbar() {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Kontrollera bredden vid första renderingen
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -79,10 +79,10 @@ function Navbar() {
                 </Link>
               </div>
               <div id="nav-left-bottom">
-                <Link className="font-jellee nav-size" to="/menu">
+                <Link className="nav-size" to="/menu">
                   MENU
                 </Link>
-                <Link className="font-jellee nav-size" to="/order">
+                <Link className="nav-size" to="/order">
                   ORDER
                 </Link>
               </div>
@@ -125,13 +125,13 @@ function Navbar() {
                 )}
               </div>
               <div id="nav-right-bottom">
-                <a className="font-jellee nav-size" href="*">
+                <a className="nav-size" href="*">
                   ABOUT US
                 </a>
-                <a className="font-jellee nav-size" href="*">
+                <a className="nav-size" href="*">
                   FAQ
                 </a>
-                <a className="font-jellee nav-size" href="*">
+                <a className="nav-size" href="*">
                   CAREER
                 </a>
               </div>
@@ -148,19 +148,19 @@ function Navbar() {
             <img className="brLabel" src={brLabel} alt="BUN DROP" />
           </Link>
           <div id="nav-mobile-content">
-            <Link className="font-jellee nav-size" to="/menu">
+            <Link className="nav-size" to="/menu">
               MENU
             </Link>
-            <Link className="font-jellee nav-size" to="/order">
+            <Link className="nav-size" to="/order">
               ORDER
             </Link>
-            <a className="font-jellee nav-size" href="*">
+            <a className="nav-size" href="*">
               ABOUT US
             </a>
-            <a className="font-jellee nav-size" href="*">
+            <a className="nav-size" href="*">
               FAQ
             </a>
-            <a className="font-jellee nav-size" href="*">
+            <a className="nav-size" href="*">
               CAREER
             </a>
           </div>

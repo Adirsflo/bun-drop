@@ -32,7 +32,14 @@
   background-color: #fd9e72;
   border: 1px solid #fd9e72;
   color: #fefbf3;
+  transition: all 0.2s;
   cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #ebebea;
+  border: 1px solid #fd9e72;
+  color: #fd9e72;
 }
 
 .account-right-container {

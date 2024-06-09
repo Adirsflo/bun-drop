@@ -84,7 +84,10 @@
 .menu-product-border {
   display: flex;
   flex-direction: column;
-  background-color: #ebebea;
+  border: 2px solid #fd9e72;
+  background-color: #fd9e72;
+  color: #fefbf3;
+  font-weight: lighter;
   justify-content: center;
   width: 80%;
   height: 6.5rem;
@@ -96,6 +99,12 @@
   left: 1.5rem;
   top: 0.125rem;
   opacity: 90%;
+  transition: all 0.2s;
+}
+
+.menu-product-border:hover {
+  background-color: #fecdb7;
+  color: #0a2328;
 }
 
 @media (max-width: 768px) {

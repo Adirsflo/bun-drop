@@ -127,6 +127,14 @@ button {
 /* NAVBAR */
 .nav-size {
   font-size: 1.25rem;
+  margin-right: 1rem;
+  text-align: center;
+  color: #0a2328;
+  transition: all 0.2s;
+}
+
+.nav-size:hover {
+  color: #fefbf3;
 }
 
 #nav-wrapper {
@@ -243,6 +251,11 @@ button {
   width: auto;
   margin-right: 1.25rem;
   color: #0a2328;
+  transition: all 0.2s;
+}
+
+.nav-icon:hover {
+  color: #fefbf3;
 }
 
 /* FOOTER */
@@ -289,11 +302,16 @@ button {
   gap: 1.25rem;
 }
 
-.footer-menu .link {
+.link {
   text-decoration: none;
   color: #0a2328;
   margin: 0;
   font-size: 1.5rem;
+  transition: all 0.2s;
+}
+
+.link:hover {
+  color: #fefbf3;
 }
 
 .social-icons {

@@ -8,6 +8,11 @@
   width: 100px;
   margin: 2rem 3rem 0 4.5rem;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+#order-back-btn:hover {
+  background-color: #fd9e72;
 }
 
 #order-back-btn-mobile {
@@ -89,6 +94,13 @@
   cursor: pointer;
   position: relative;
   bottom: 1rem;
+  transition: all 0.2s;
+}
+
+#checkout-btn:hover {
+  background-color: #0a2328;
+  color: #fefbf3;
+  border: 1.5px solid #0a2328;
 }
 
 #checkout-btn > * {
@@ -291,7 +303,14 @@
   border: 1px solid #fd9e72;
   color: #fefbf3;
   cursor: pointer;
+  transition: all 0.2s;
 }
+
+.order-selection-product-btn:hover {
+  background-color: #0a2328;
+  border: 1px solid #0a2328;
+}
+
 .osp-left {
   flex: 2 0 120px;
   font-size: 24px;
@@ -388,6 +407,13 @@
   border: 1px solid #fd9e72;
   color: #fefbf3;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.next-btn:hover {
+  background-color: #0a2328;
+  border: 1px solid #0a2328;
+  color: #fefbf3;
 }
 
 .faV-right-next {
