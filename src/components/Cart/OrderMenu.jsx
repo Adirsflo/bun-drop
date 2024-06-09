@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+// Component
 import OrderProduct from "./OrderProduct";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 function OrderMenu({ onProductSelect }) {
   const [products, setProducts] = useState([]);

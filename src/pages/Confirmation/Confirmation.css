@@ -28,7 +28,6 @@
 }
 
 /* TOP CONTAINER */
-
 .confirmation-container {
   display: flex;
   flex-direction: column;
@@ -43,8 +42,6 @@
   justify-content: flex-start;
   width: 100%;
   margin-left: 2rem;
-  /* position: relative;
-  right: 20.5rem; */
   font-size: 13px;
   opacity: 33%;
 }
@@ -76,7 +73,6 @@
 }
 
 /* BOTTOM CONTAINER */
-
 .order-details-header-container {
   display: flex;
   justify-content: flex-start;
@@ -84,7 +80,6 @@
 }
 
 /* ORDER LEFT */
-
 .order-details-header {
   display: flex;
   justify-content: flex-start;
@@ -109,7 +104,6 @@
 .confirmation-bottom-left {
   flex: 1;
   height: 55%;
-  /* border-right: 1px solid #0a2328; */
 }
 
 .confirmation-order-details-top {
@@ -183,7 +177,6 @@
 }
 
 /* ORDER RIGHT */
-
 .confirmation-bottom-right {
   display: flex;
   flex-direction: column;
@@ -307,7 +300,6 @@
   }
 
   /* TOP CONTAINER */
-
   .confirmation-container {
     display: flex;
     flex-direction: column;
@@ -355,7 +347,6 @@
   }
 
   /* BOTTOM CONTAINER */
-
   .order-details-header-container {
     display: flex;
     justify-content: flex-start;
@@ -363,7 +354,6 @@
   }
 
   /* ORDER LEFT */
-
   .order-details-header {
     display: flex;
     justify-content: flex-start;
@@ -379,9 +369,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    height: calc(
-      100% - 50px
-    ); /* Adjust this value according to the height of elements above */
+    height: calc(100% - 50px);
   }
 
   .dummy-seperation {
@@ -466,7 +454,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem; /* Adjust this value to fit your needs */
+    margin-bottom: 1rem;
   }
 
   /* ORDER RIGHT */

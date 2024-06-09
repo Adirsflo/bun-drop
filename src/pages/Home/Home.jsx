@@ -1,11 +1,17 @@
 import React from "react";
+
+// Component
 import AreUHungry from "../../components/AreUHungry";
+
+// Images
 import dropHamburger from "@images/display/drop-hamburger.png";
 import favBurger1 from "@images/display/fav_burgers/burger-2.png";
 import favBurger2 from "@images/display/fav_burgers/burger-3.png";
 import favBurger3 from "@images/display/fav_burgers/burger-4.png";
 import favBurger4 from "@images/display/fav_burgers/burger-6.png";
 import favBurger5 from "@images/display/fav_burgers/burger-8.png";
+
+// CSS
 import "./Home.css";
 
 function Home() {
@@ -18,44 +24,6 @@ function Home() {
         </div>
         <img id="drop-hamburger" src={dropHamburger} alt="" />
       </div>
-      {/* <section className="carousell-favorite">
-        <div className="carousell-favorite-container">
-          <div className="scroller">
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger1} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger2} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger3} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger4} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger5} alt="" />
-            </div>
-          </div>
-          <div className="scroller">
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger1} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger2} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger3} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger4} alt="" />
-            </div>
-            <div className="item">
-              <img className="favorite-burger-img" src={favBurger5} alt="" />
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <div id="favorite-container">
         <h1>OUR FAVORITE DROPS</h1>

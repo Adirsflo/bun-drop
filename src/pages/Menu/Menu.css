@@ -1,5 +1,4 @@
 /* MENU */
-
 #menu-border {
   display: flex;
   justify-content: center;
@@ -53,8 +52,6 @@
   width: 24.4%;
   background-color: #0a2328;
   border: #0a2328;
-
-  /* margin: 0 2rem; */
 }
 
 .category-title span {
@@ -134,8 +131,8 @@
   }
 
   #category-select-wrapper {
-    overflow-x: auto; /* Möjliggör horisontell scrollning */
-    white-space: nowrap; /* Förhindrar att elementen bryts */
+    overflow-x: auto;
+    white-space: nowrap;
     display: flex;
     align-items: center;
   }
@@ -151,7 +148,7 @@
   #category-select-wrapper li {
     padding: 0 1rem;
     cursor: pointer;
-    white-space: nowrap; /* Förhindrar att texten bryts */
+    white-space: nowrap;
   }
 
   .selected-category-filter {

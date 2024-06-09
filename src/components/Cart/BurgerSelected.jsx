@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBan,

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
+
+// Component
 import Receipt from "../../components/Receipt";
+
+// Hook
 import { useAuth } from "../../hooks/AuthContext";
+
+// CSS files
 import "./Receipts.css";
 import "../Confirmation/Confirmation.css";
 
@@ -27,7 +33,7 @@ function Receipts() {
               const dateA = new Date(`${a.orderDate}T${a.orderTime}`);
               const dateB = new Date(`${b.orderDate}T${b.orderTime}`);
               return dateA - dateB;
-            }); // Ändra sorteringsordningen till äldsta först med tid
+            });
 
             setUserReceipts(receiptsToDisplay);
           }
@@ -49,29 +55,24 @@ function Receipts() {
         <div className="receipts-container-left">
           <h1>MY ORDERS</h1>
           <div className="receipts-orders">
-            {[...userReceipts].reverse().map(
-              (
-                r,
-                index // Invertera ordningen vid rendering
-              ) => (
-                <div
-                  className={`receipts-order ${
-                    displayReceipt && displayReceipt.id === r.id
-                      ? "selected"
-                      : index % 2 === 0
-                      ? "even"
-                      : "odd"
-                  }`}
-                  key={r.id}
-                  onClick={() => handleReceiptDisplay(r)}
-                >
-                  <div>Receipt.no: {r.id}</div>
-                  <div>
-                    {r.orderDate} | {r.orderTime}
-                  </div>
+            {[...userReceipts].reverse().map((r, index) => (
+              <div
+                className={`receipts-order ${
+                  displayReceipt && displayReceipt.id === r.id
+                    ? "selected"
+                    : index % 2 === 0
+                    ? "even"
+                    : "odd"
+                }`}
+                key={r.id}
+                onClick={() => handleReceiptDisplay(r)}
+              >
+                <div>Receipt.no: {r.id}</div>
+                <div>
+                  {r.orderDate} | {r.orderTime}
                 </div>
-              )
-            )}
+              </div>
+            ))}
             <div className="dummy-spacing" />
           </div>
         </div>

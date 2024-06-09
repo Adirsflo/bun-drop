@@ -154,11 +154,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40vh; /* Sätt höjden till 40vh för att tillåta skrollning */
-    max-height: 40vh; /* Max höjd för att möjliggöra skrollning */
+    height: 40vh;
+    max-height: 40vh;
     width: 100%;
     line-height: 1;
-    overflow-y: auto; /* Lägg till overflow-y för att tillåta skrollning */
+    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
@@ -218,110 +218,3 @@
     border-bottom: 1px solid #000;
   }
 }
-
-/* 
-@media (max-width: 768px) {
-  .receipts-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 90%;
-    height: auto;
-    background-color: #fefbf3;
-    border-radius: 12px;
-    margin-bottom: 3%;
-    padding-bottom: 0rem;
-    margin-top: 1.5rem;
-  }
-
-  .receipts-container-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 40%;
-  }
-
-  .receipts-container-left h1 {
-    margin-bottom: 0rem;
-    font-size: 32px;
-  }
-
-  .receipts-container-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 0%;
-    background-color: #ebebea;
-  }
-
-  .receipts-orders {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 40%;
-    max-height: 50%;
-    width: 100%;
-    line-height: 0%;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-  }
-
-  .receipts-orders::-webkit-scrollbar {
-    width: 12px;
-    background-color: transparent;
-  }
-
-  .receipts-orders::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    transition: background-color 0.3s;
-  }
-
-  .receipts-orders.scrolling::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .receipts-orders.scrolling {
-    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  }
-
-  .dummy-spacing {
-    margin-bottom: 3rem;
-  }
-
-  .receipts-order {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1.8;
-    padding: 1rem 0;
-    width: 100%;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-  .receipts-order > * {
-    margin-left: 1rem;
-    position: relative;
-    top: 0.4rem;
-    font-weight: lighter;
-    font-size: 14px;
-  }
-
-  .receipts-order.even {
-    background-color: #d9d9d9;
-  }
-
-  .receipts-order.odd {
-    background-color: #fefbf3;
-  }
-
-  .receipts-order.selected {
-    background-color: #ebebea;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-  }
-} */

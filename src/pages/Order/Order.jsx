@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
+
+// Router Navigate
 import { useNavigate } from "react-router-dom";
+
+// Components
 import Cart from "../../components/Cart/Cart";
 import OrderMenu from "../../components/Cart/OrderMenu";
 import OrderCheckout from "../../components/Cart/OrderCheckout";
 import OrderDetails from "../../components/Cart/OrderDetails";
 import OrderPayment from "../../components/Cart/OrderPayment";
-import "./Order.css";
+
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import localStorageManager from "../../utils/localstoragemanager";
+
+// CSS
+import "./Order.css";
 
 function Order() {
   const [cart, setCart] = useState([]);
@@ -99,7 +107,7 @@ function Order() {
 
   const handleCheckout = () => {
     setCheckout(true);
-    setShowCartModal(false); // Stänger modalen när användaren går vidare till checkout
+    setShowCartModal(false);
   };
 
   const handlePaymentMethod = (method) => {

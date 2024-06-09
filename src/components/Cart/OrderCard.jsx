@@ -142,7 +142,7 @@ function OrderCard({ orderDetails }) {
             throw new Error("Failed to update user receipts");
           }
 
-          loginWithUserData(updatedUser); // Update user context
+          loginWithUserData(updatedUser);
         }
 
         navigate(`/confirmation/${receiptId}`);

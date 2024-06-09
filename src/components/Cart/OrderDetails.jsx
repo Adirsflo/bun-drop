@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,7 +20,6 @@ function OrderDetails({ userDetails, onNext, onUserDetailsChange }) {
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
-    // Only allow digits
     if (/^\d*$/.test(value)) {
       setPhone(value);
     }
@@ -74,7 +74,7 @@ function OrderDetails({ userDetails, onNext, onUserDetailsChange }) {
             type="text"
             placeholder="Mobile phone number *"
             value={phone}
-            onChange={handlePhoneChange} // Använd den nya hanteraren för telefonnummer
+            onChange={handlePhoneChange}
           />
           {errors.phone && <div className="error">{errors.phone}</div>}
 

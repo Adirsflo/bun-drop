@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+
+// Hook
 import { useAuth } from "../../hooks/AuthContext";
+
+// CSS
 import "./Account.css";
 
 function Account() {
@@ -57,6 +61,16 @@ function Account() {
     });
   };
 
+  const handleNumericChange = (e) => {
+    const { name, value } = e.target;
+    if (/^\d*$/.test(value)) {
+      setUserToUpdate({
+        ...userToUpdate,
+        [name]: value,
+      });
+    }
+  };
+
   delete userToUpdate.confirmPassword;
 
   const handleSaveProfile = async () => {
@@ -76,7 +90,6 @@ function Account() {
         throw new Error("Failed to update user");
       }
 
-      // Uppdatera all data för usern i local storage
       loginWithUserData(userToUpdate);
 
       alert("User profile updated successfully!");
@@ -129,7 +142,6 @@ function Account() {
         confirmPassword: "",
       });
 
-      // Uppdatera all data för usern i local storage
       loginWithUserData(updatedUser);
     } catch (error) {
       console.error("Error updating password:", error);
@@ -176,7 +188,7 @@ function Account() {
                     name="phone"
                     placeholder="Phone number"
                     value={userToUpdate.phone}
-                    onChange={handleProfileChange}
+                    onChange={handleNumericChange}
                   />
                   <input
                     type="text"
@@ -197,7 +209,7 @@ function Account() {
                     name="zip"
                     placeholder="Zip"
                     value={userToUpdate.zip}
-                    onChange={handleProfileChange}
+                    onChange={handleNumericChange}
                   />
                 </div>
                 <div>

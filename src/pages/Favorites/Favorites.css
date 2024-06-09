@@ -110,7 +110,6 @@
   border-bottom: 1px solid #000;
 }
 
-/* Lägg till media queries för att hantera mindre skärmar */
 @media (max-width: 768px) {
   .favorites-left-container,
   .favorites-right-container {

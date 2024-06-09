@@ -422,7 +422,6 @@
 }
 
 /* ADDRESS */
-
 .checkout-section-address {
   display: flex;
   flex-direction: row;
@@ -472,7 +471,6 @@
 /* *************************************************** */
 
 /* READY-TIME */
-
 .checkout-time {
   display: flex;
   align-items: center;
@@ -866,7 +864,6 @@
 .card-section-exp-cvc-input {
   height: 59px;
   width: 100%;
-  /* gap: 1rem; */
   max-width: 100%;
   margin-bottom: 1rem;
   border: none;
@@ -904,7 +901,6 @@
 /* ************************************************** */
 
 /* ORDER SWISH */
-
 .swish-section-container {
   display: flex;
   flex-direction: column;
@@ -1349,7 +1345,6 @@
   }
 
   /* ADDRESS */
-
   .checkout-section-address {
     display: flex;
     flex-direction: column;
@@ -1402,7 +1397,6 @@
   /* *************************************************** */
 
   /* READY-TIME */
-
   .checkout-time {
     display: flex;
     align-items: center;
@@ -1584,7 +1578,6 @@
   /* ******************************************************** */
 
   /* ORDER CARD */
-
   .error {
     font-size: 14px;
     color: #aa4242;
@@ -1751,7 +1744,6 @@
   /* ***************************************************** */
 
   /* ORDER SWISH */
-
   .swish-section-container {
     display: flex;
     flex-direction: column;

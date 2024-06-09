@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
+
+// Router
 import { useNavigate } from "react-router-dom";
+
+// Image & Font Awesome
 import swishText from "@images/payment/swish-text.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+
+// Hooks
 import { generateOrderId } from "../../utils/utils";
 import { useAuth } from "../../hooks/AuthContext";
 
@@ -78,7 +84,6 @@ function OrderSwish({ orderDetails }) {
       };
 
       try {
-        // Save receipt in receipts database
         const receiptResponse = await fetch("http://localhost:3001/receipts", {
           method: "POST",
           headers: {
@@ -91,7 +96,6 @@ function OrderSwish({ orderDetails }) {
           throw new Error("Failed to save receipt");
         }
 
-        // Update user in users database
         if (user) {
           const updatedUser = {
             ...user,

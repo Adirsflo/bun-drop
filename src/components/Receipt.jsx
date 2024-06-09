@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+
+// Images
 import brLabel from "@images/bun_drop/br-label.png";
 import locationImg from "@images/display/location.png";
+
+// Hook
 import { useTimer } from "../hooks/Timer";
 
 function Receipt({ receipt }) {

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
+// Hook
 import { useAuth } from "../../hooks/AuthContext";
 
 function LoginModal({ isRegister, setIsRegister, closeModal }) {
